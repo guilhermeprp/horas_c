@@ -4,7 +4,6 @@ class MyHomePage extends StatefulWidget {
   // MyHomePage({this.title});
 
   // final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -15,7 +14,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(      
-        title: Text('UnipHC'),
+        centerTitle: true,
+        title: Text('Unip HC'),
       ),
       body: Center(
         child: Column(
@@ -39,7 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.green,
         icon: Icon(Icons.thumb_up),
         
-      ), 
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       );
   }
 }
