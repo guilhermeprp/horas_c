@@ -82,13 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Confirmar'),
         onPressed: () {
-          Navigator.pop(context, MyActivities())
-          ;
-          
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => MyActivities())
-          // );
+                
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MyActivities())
+          );
 
           } , 
         backgroundColor: Colors.green,
