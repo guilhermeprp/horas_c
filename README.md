@@ -1,4 +1,4 @@
-# uniphc
+# Unip H.C
 
 A new Flutter application.
 
