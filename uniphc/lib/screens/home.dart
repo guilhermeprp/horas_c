@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uniphc/screens/activities.dart';
 
 class MyHomePage extends StatefulWidget {
   // MyHomePage({this.title});
@@ -15,11 +16,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo[900],
-      appBar: AppBar(
-        backgroundColor: Colors.indigo[600],      
-        centerTitle: true,
-        title: Text('UNIP HC'),
-      ),
      
       body: Center(
         child: Column(
@@ -35,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(
                 fontSize: 17,
                 color: Colors.white,
-                height: 3,
+                height: 2,
                 ),
             ),
             
@@ -45,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: new BoxDecoration(
                   
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(5.0),
+                        borderRadius: BorderRadius.circular(9.0),
                             
                     ),
 
@@ -82,9 +78,19 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       
+      //botão confirmar
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Confirmar'),
-        onPressed: (){print('Pressed');},
+        onPressed: () {
+          Navigator.pop(context, MyActivities())
+          ;
+          
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => MyActivities())
+          // );
+
+          } , 
         backgroundColor: Colors.green,
         icon: Icon(Icons.thumb_up),
         
@@ -98,7 +104,7 @@ class LogoUnipImageAsset extends  StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/logo-unip-home.png');
-    Image image = Image(image: assetImage, width: 250, height: 250,);
+    Image image = Image(image: assetImage, width: 250, height: 310,);
     return Container( child: image,);
   }
 }
