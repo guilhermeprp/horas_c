@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: MyHomePage(),
-      ), 
+      ),
     );
   }
 }
-
