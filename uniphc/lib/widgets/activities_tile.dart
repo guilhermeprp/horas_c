@@ -1,48 +1,44 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-class ActivitiesTile extends StatelessWidget {
+import 'package:uniphc/controller/peso_controller.dart';
+import 'package:uniphc/widgets/custom_slider.dart';
+import 'package:uniphc/controller/atividades_controller.dart';
+class ActivitiesTile extends StatefulWidget {
+  
   @override
+  _ActivitiesTileState createState() => _ActivitiesTileState();
+}
+class _ActivitiesTileState extends State<ActivitiesTile> {
+  
   Widget build(BuildContext context) {
-    final List<String> _listaAtividades = <String>[
-      'Curso específico da área - Presencial',
-      'Curso específico da área - EAD',
-      'Curso não específico da área - Presencial',
-      'Curso não específico da área - EAD',
-      'Peça Teatral',
-      'Exposições Culturais',
-      'Museu',
-      'Livro correlato ou indicado',
-      'Exposições Técnicas',
-      'Feiras Técnicas'
-    ];
-
     return SingleChildScrollView(
-      // child: ConstrainedBox(
-      //        constraints: BoxConstraints(
-      //          minHeight: viewportConstraints.maxHeight,
-      //        ),
-      child: Card(
-        child: Column(
-          children: <Widget>[
-            ListView.builder(
+      child: Column(
+        children: <Widget>[
+          Card(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: _listaAtividades.length,
+                itemCount: listaAtividades.length,
                 itemBuilder: (BuildContext context, int index) {
+                  Peso peso = listaPesos[index];
+                  Atividade atividade = listaAtividades[index];
+                        print('${peso.medidaPeso}');
+                        print('${atividade.nome}');
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       ListTile(
-                        title: Text('${(_listaAtividades[index])}'),
-                        subtitle: Text('data'),
+                        title: Text(atividade.nome),
+                        subtitle: Text('Peso: '+peso.medidaPeso),
                       ),
-                      Slider(min: 0, max: 20, value: 10, onChanged: null),
+                     CustomSlider()
                     ],
                   );
                 }),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-}
+  }
+  
