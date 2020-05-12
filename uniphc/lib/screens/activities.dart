@@ -22,14 +22,15 @@ class _MyActivitiesState extends State<MyActivities> {
       body: Stack(
         children: <Widget>[
            ActivitiesTile(),
+           
         FloatingActionButton.extended(
-          label: Text('Punheta o Like'),
+          label: Text('Like'),
           
           onPressed: null,
           ),
         ],
       ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, 
+     
     );
   }
 }
