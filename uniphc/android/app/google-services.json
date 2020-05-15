@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "191215285717",
+    "firebase_url": "https://uniphc-8025d.firebaseio.com",
+    "project_id": "uniphc-8025d",
+    "storage_bucket": "uniphc-8025d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191215285717:android:a7ac2e7ae669f4986b795c",
+        "android_client_info": {
+          "package_name": "src.main.dart.uniphc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191215285717-7j311u9a8pdt8fcfpb7opkkjfeone7mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApQjjBb5mMCtvz_6csgo_uB2YGJLlcJ6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191215285717-7j311u9a8pdt8fcfpb7opkkjfeone7mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
