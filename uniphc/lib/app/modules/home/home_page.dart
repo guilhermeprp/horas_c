@@ -16,9 +16,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+
+      
+      appBar: AppBar( 
+      
+          title: Text('data'),
+          
+         backgroundColor:
+          Colors.deepPurple[500], 
+          
+
+          // LinearGradient(
+          //   colors: [Colors.indigo, Colors.indigoAccent])
+          // ),         
+          ),
+      
       body: Column(
         children: <Widget>[
           TextField(
