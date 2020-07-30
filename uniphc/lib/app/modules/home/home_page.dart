@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uniphc/app/modules/home/home_module.dart';
+import 'package:uniphc/app/modules/home/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/modules/home/widgets/card_atividade/card_atividade_widget.dart';
 import 'home_controller.dart';
 
@@ -34,9 +35,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               return CardAtividadeWidget(
                 nomeAtividade: homeController.listadeAtividades[index].atividadeNome,
                 pesoAtividade: "Peso "+homeController.listadeAtividades[index].atividadePeso,
-                horaAtividade: homeController.listadeAtividades[index].curso.cursoHoraMinima.toDouble(),
-                value: 1,
-              );
+                // limiteAtividade: homeController.listadeAtividades[index].atividadeLimite.toDouble(),
+                );
             },
           );
         },
