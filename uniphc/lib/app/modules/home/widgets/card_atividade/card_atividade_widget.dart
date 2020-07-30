@@ -1,12 +1,17 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
+  double value = 1.0;
 class CardAtividadeWidget extends StatelessWidget {
   final String nomeAtividade;
   final String pesoAtividade;
+  final double horaAtividade;
 
   const CardAtividadeWidget({
     Key key, @required this.nomeAtividade,
-       @required this.pesoAtividade
+       @required this.pesoAtividade,
+       @required this.horaAtividade,
   }): super(key: key);
 
   @override
@@ -22,11 +27,21 @@ class CardAtividadeWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(nomeAtividade,                  
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                 ),
                 Text( pesoAtividade,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
                 ),
+                Slider.adaptive(
+                  min: 0,
+                  max: horaAtividade,
+                  // divisions: 10,
+                  inactiveColor: Colors.blueGrey[400],
+                  activeColor: Colors.indigo,
+                  value: value,
+                  onChanged: (double e) => changed (e),
+                ),
+                Text("data"),
               ],
             ),
           ),
@@ -34,4 +49,16 @@ class CardAtividadeWidget extends StatelessWidget {
       ),
     );
   }
+  void changed (e) {
+    setState((){
+    value = e;
+
+    });
+  }
+
+  void setState(Null Function() param0) {}
+
+
+
+
 }

@@ -17,5 +17,4 @@ abstract class _HomeControllerBase with Store {
   @observable
   List<AtividadeModel> listadeAtividades = [];
 
-
 }

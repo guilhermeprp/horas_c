@@ -32,8 +32,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             itemCount: homeController.listadeAtividades.length,
             itemBuilder: (BuildContext context, int index) {
               return CardAtividadeWidget(
-                nomeAtividade: "Atividade $index",
-                pesoAtividade: "Peso $index",
+                nomeAtividade: homeController.listadeAtividades[index].atividadeNome,
+                pesoAtividade: "Peso "+homeController.listadeAtividades[index].atividadePeso,
+                horaAtividade: homeController.listadeAtividades[index].curso.cursoHoraMinima.toDouble(),
+                value: 1,
               );
             },
           );

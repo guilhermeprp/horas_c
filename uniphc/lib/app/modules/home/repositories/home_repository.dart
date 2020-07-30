@@ -11,21 +11,19 @@ class HomeRepository extends Disposable {
   Future<List<AtividadeModel>> getAtividade() async{
     var query = '''
       query getAtividades {
-        curso {
-          curso_nome
-          curso_hora_minima
-          tipo_atividades {
-            atividade {
-              atividade_nome
-            }
-            limite_atividade
-            peso_atividade
+        tipo_atividades {
+          id
+          atividade_nome
+          atividade_peso
+          atividade_limite
+          curso {
+            curso_hora_minima
           }
         }
       }''';
     var snapshot = await _hasuraConnect.query(query); 
 
-        return AtividadeModel.fromJsonList(snapshot["data"]["curso"] as List); 
+        return AtividadeModel.fromJsonList(snapshot["data"]["tipo_atividades"] as List); 
 
   
   }
