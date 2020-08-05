@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uniphc/app/modules/home/widgets/card_atividade/card_atividade_slider.dart';
+import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 
 class CardAtividadeWidget extends StatelessWidget {
   final String nomeAtividade;

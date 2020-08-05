@@ -1,15 +1,14 @@
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:uniphc/app/modules/home/widgets/card_atividade/card_atividade_controller.dart';
-import 'package:uniphc/app/modules/home/home_module.dart';
+import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 
 void main() {
-  initModule(HomeModule());
+  initModule(AtividadesModule());
   // CardAtividadeController cardatividade;
   //
   setUp(() {
-    //     cardatividade = HomeModule.to.get<CardAtividadeController>();
+    //     cardatividade = AtividadesModule.to.get<CardAtividadeController>();
   });
 
   group('CardAtividadeController Test', () {

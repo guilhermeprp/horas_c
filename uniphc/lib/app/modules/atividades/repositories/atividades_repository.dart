@@ -1,11 +1,11 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hasura_connect/hasura_connect.dart';
-import 'package:uniphc/app/modules/home/models/atividade_model.dart';
+import 'package:uniphc/app/modules/atividades/models/atividades_model.dart';
 
-class HomeRepository extends Disposable {
+class AtividadesRepository extends Disposable {
   final HasuraConnect _hasuraConnect;
 
-  HomeRepository(this._hasuraConnect);
+  AtividadesRepository(this._hasuraConnect);
   
   
   Future<List<AtividadeModel>> getAtividade() async{

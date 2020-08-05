@@ -2,22 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 
-import 'package:uniphc/app/modules/home/repositories/home_repository.dart';
+import 'package:uniphc/app/modules/atividades/repositories/atividades_repository.dart';
 
 class MockClient extends Mock implements Dio {}
 
 void main() {
-  HomeRepository repository;
+  AtividadesRepository repository;
   // MockClient client;
 
   setUp(() {
-    // repository = HomeRepository();
+    // repository = AtividadesRepository();
     // client = MockClient();
   });
 
-  group('HomeRepository Test', () {
+  group('AtividadesRepository Test', () {
     //  test("First Test", () {
-    //    expect(repository, isInstanceOf<HomeRepository>());
+    //    expect(repository, isInstanceOf<AtividadesRepository>());
     //  });
 
     test('returns a Post if the http call completes successfully', () async {
