@@ -5,14 +5,14 @@ class CardAtividadeWidget extends StatelessWidget {
   final String nomeAtividade;
   final String pesoAtividade;
   final String medidaAtividade;
-  
+
   const CardAtividadeWidget({
     Key key,
     @required this.nomeAtividade,
     @required this.pesoAtividade,
     @required this.medidaAtividade,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,12 +36,13 @@ class CardAtividadeWidget extends StatelessWidget {
                       Expanded(
                         child: Text(
                           pesoAtividade,
-                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.normal),
                         ),
                       ),
-                      Text( 
-                        medidaAtividade, 
-                        style: TextStyle(fontSize:15, fontWeight: FontWeight.normal)),
+                      Text(medidaAtividade,
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.normal)),
                     ],
                   ),
                   SliderWidget(),

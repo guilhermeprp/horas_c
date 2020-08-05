@@ -9,14 +9,17 @@ class AbaNavegacao extends StatelessWidget {
           DrawerHeader(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.indigo[900],
+                color: Colors.indigo[700],
               ),
               child: Image.asset('assets/images/logo_app.png')),
           Padding(
-            padding: const EdgeInsets.only(top:50),
-            child: ListTile( 
-              title: Center(child: Text('Home',style: TextStyle(fontSize: 18))),
-              onTap:() {Navigator.pushNamed(context, '/');},
+            padding: const EdgeInsets.only(top: 50),
+            child: ListTile(
+              title:
+                  Center(child: Text('Home', style: TextStyle(fontSize: 18))),
+              onTap: () {
+                Navigator.pushNamed(context, '/');
+              },
             ),
           ),
           Divider(
@@ -25,8 +28,11 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Atividades', style: TextStyle(fontSize: 18))),
-            onTap:() {Navigator.pushNamed(context, '/Atividades');},
+            title: Center(
+                child: Text('Atividades', style: TextStyle(fontSize: 18))),
+            onTap: () {
+              Navigator.pushNamed(context, '/Atividades');
+            },
           ),
           Divider(
             height: 20,
@@ -34,7 +40,8 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Estatísticas', style: TextStyle(fontSize: 18))),
+            title: Center(
+                child: Text('Estatísticas', style: TextStyle(fontSize: 18))),
           ),
           Divider(
             height: 20,
@@ -42,7 +49,8 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Manuais', style: TextStyle(fontSize: 18))),
+            title:
+                Center(child: Text('Manuais', style: TextStyle(fontSize: 18))),
           ),
         ],
       ),

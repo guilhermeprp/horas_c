@@ -14,7 +14,8 @@ class AtividadesPage extends StatefulWidget {
   _AtividadesPageState createState() => _AtividadesPageState();
 }
 
-class _AtividadesPageState extends ModularState<AtividadesPage, AtividadesController> {
+class _AtividadesPageState
+    extends ModularState<AtividadesPage, AtividadesController> {
   //use 'controller' variable to access controller
   AtividadesController atividadesController = AtividadesModule.to.get();
   @override
@@ -44,8 +45,8 @@ class _AtividadesPageState extends ModularState<AtividadesPage, AtividadesContro
                     atividadesController.listadeAtividades[index].atividadeNome,
                 pesoAtividade: "Peso " +
                     atividadesController.listadeAtividades[index].atividadePeso,
-                medidaAtividade:
-                    atividadesController.listadeAtividades[index].atividadeMedida,
+                medidaAtividade: atividadesController
+                    .listadeAtividades[index].atividadeMedida,
                 // limiteAtividade: AtividadesController.listadeAtividades[index].atividadeLimite.toDouble(),
               );
             },
