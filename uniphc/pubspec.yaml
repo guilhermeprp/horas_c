@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  find_dropdown: ^0.2.0
   hasura_connect: ^1.2.2+1
   dio: ^3.0.9
   flutter_mobx: ^1.1.0+1

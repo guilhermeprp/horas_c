@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:uniphc/app/app_widget.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 
+import 'modules/home/home_module.dart';
+
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
@@ -12,7 +14,8 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router(Modular.initialRoute, module: AtividadesModule()),
+        Router('/', module: HomeModule()),
+        Router('/Atividades', module: AtividadesModule()),
       ];
 
   @override

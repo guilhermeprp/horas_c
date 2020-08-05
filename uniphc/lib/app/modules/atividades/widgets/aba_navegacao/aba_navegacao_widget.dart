@@ -12,8 +12,12 @@ class AbaNavegacao extends StatelessWidget {
                 color: Colors.indigo[900],
               ),
               child: Image.asset('assets/images/logo_app.png')),
-          ListTile(
-            title: Center(child: Text('Home')),
+          Padding(
+            padding: const EdgeInsets.only(top:50),
+            child: ListTile( 
+              title: Center(child: Text('Home',style: TextStyle(fontSize: 18))),
+              onTap:() {Navigator.pushNamed(context, '/');},
+            ),
           ),
           Divider(
             height: 20,
@@ -21,7 +25,8 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Atividades')),
+            title: Center(child: Text('Atividades', style: TextStyle(fontSize: 18))),
+            onTap:() {Navigator.pushNamed(context, '/Atividades');},
           ),
           Divider(
             height: 20,
@@ -29,7 +34,7 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Estatísticas')),
+            title: Center(child: Text('Estatísticas', style: TextStyle(fontSize: 18))),
           ),
           Divider(
             height: 20,
@@ -37,7 +42,7 @@ class AbaNavegacao extends StatelessWidget {
             endIndent: 50,
           ),
           ListTile(
-            title: Center(child: Text('Manuais')),
+            title: Center(child: Text('Manuais', style: TextStyle(fontSize: 18))),
           ),
         ],
       ),
