@@ -28,14 +28,18 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           centerTitle: true,
           elevation: 0,
           title:  Text(widget.title),
-          leading: IconButton(
-            // Alterar para inserção de menu de navegação
-          onPressed: null,
-          icon: Icon(Icons.menu, color: Colors.white, size: 30,), 
-          ),
-          
         ),
       ),
+
+      // Drawer side bar do aplicativo
+      drawer: Drawer(
+        child: ListView(
+        
+
+        ),
+
+      ),
+
       body: Observer(
         builder: (BuildContext context) {
           return ListView.builder(
