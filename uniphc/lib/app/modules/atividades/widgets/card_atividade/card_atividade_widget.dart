@@ -15,38 +15,41 @@ class CardAtividadeWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            height: 128,
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  nomeAtividade,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        pesoAtividade,
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12),
+      child: Card(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: 128,
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    nomeAtividade,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          pesoAtividade,
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                        ),
                       ),
-                    ),
-                    Text( 
-                      medidaAtividade, 
-                      style: TextStyle(fontSize:15, fontWeight: FontWeight.normal)),
-                  ],
-                ),
-                SliderWidget(),
-              ],
+                      Text( 
+                        medidaAtividade, 
+                        style: TextStyle(fontSize:15, fontWeight: FontWeight.normal)),
+                    ],
+                  ),
+                  SliderWidget(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
