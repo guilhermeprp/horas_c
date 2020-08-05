@@ -7,11 +7,11 @@ class AbaNavegacao extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           DrawerHeader(
-              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.indigo[700],
+                color: Color.fromRGBO(0, 0, 0, 0),
               ),
-              child: Image.asset('assets/images/logo_app.png')),
+              padding: EdgeInsets.all(10),
+              child: Image.asset('assets/images/logo_listview.png')),
           Padding(
             padding: const EdgeInsets.only(top: 50),
             child: ListTile(
@@ -23,6 +23,7 @@ class AbaNavegacao extends StatelessWidget {
             ),
           ),
           Divider(
+            color: Color.fromRGBO(0, 0, 0, 0),
             height: 20,
             indent: 50,
             endIndent: 50,
@@ -35,6 +36,7 @@ class AbaNavegacao extends StatelessWidget {
             },
           ),
           Divider(
+            color: Color.fromRGBO(0, 0, 0, 0),
             height: 20,
             indent: 50,
             endIndent: 50,
@@ -44,6 +46,7 @@ class AbaNavegacao extends StatelessWidget {
                 child: Text('Estatísticas', style: TextStyle(fontSize: 18))),
           ),
           Divider(
+            color: Color.fromRGBO(0, 0, 0, 0),
             height: 20,
             indent: 50,
             endIndent: 50,

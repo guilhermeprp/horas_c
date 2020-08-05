@@ -27,23 +27,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       // backgroundColor: Colors.indigo,
       body: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                stops: [
-              0.1,
-              0.3,
-              0.5,
-              0.7,
-              0.9
-            ],
-                colors: [
-              Colors.indigo[500],
-              Colors.indigo[600],
-              Colors.indigo[700],
-              Colors.indigo[800],
-              Colors.indigo[900]
-            ])),
+          color: Color.fromRGBO(0, 30, 90, 1),
+        ),
         child: Stack(
           children: <Widget>[
             Positioned(
