@@ -16,6 +16,7 @@ class HomeRepository extends Disposable {
           atividade_nome
           atividade_peso
           atividade_limite
+          atividade_medida
           curso {
             curso_hora_minima
           }

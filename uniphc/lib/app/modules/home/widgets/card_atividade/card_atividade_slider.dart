@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 
 class SliderWidget extends StatefulWidget {
   final double max;  
@@ -13,8 +12,6 @@ class SliderWidget extends StatefulWidget {
 
 class _SliderWidgetState extends State<SliderWidget> {
   double value = 0;
-  DateTime _dateTime = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
       // if ( max >100) {}; 

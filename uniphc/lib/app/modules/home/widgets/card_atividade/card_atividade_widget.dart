@@ -1,16 +1,16 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:uniphc/app/modules/home/widgets/card_atividade/card_atividade_slider.dart';
 
 class CardAtividadeWidget extends StatelessWidget {
   final String nomeAtividade;
   final String pesoAtividade;
+  final String medidaAtividade;
   
   const CardAtividadeWidget({
     Key key,
     @required this.nomeAtividade,
     @required this.pesoAtividade,
+    @required this.medidaAtividade,
   }) : super(key: key);
   
   @override
@@ -19,7 +19,7 @@ class CardAtividadeWidget extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            height: 140,
+            height: 128,
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(10),
             child: Column(
@@ -27,14 +27,22 @@ class CardAtividadeWidget extends StatelessWidget {
               children: <Widget>[
                 Text(
                   nomeAtividade,
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  pesoAtividade,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        pesoAtividade,
+                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                    Text( 
+                      medidaAtividade, 
+                      style: TextStyle(fontSize:15, fontWeight: FontWeight.normal)),
+                  ],
                 ),
                 SliderWidget(),
-                Text("value"),
               ],
             ),
           ),

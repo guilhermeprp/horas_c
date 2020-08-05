@@ -14,6 +14,7 @@ class AtividadeModel {
         this.atividadeNome,
         this.atividadePeso,
         this.atividadeLimite,
+        this.atividadeMedida,
         this.curso,
     });
 
@@ -21,6 +22,7 @@ class AtividadeModel {
     String atividadeNome;
     String atividadePeso;
     int atividadeLimite;
+    String atividadeMedida;
     Curso curso;
 
     factory AtividadeModel.fromJson(Map<String, dynamic> json) => AtividadeModel(
@@ -28,6 +30,7 @@ class AtividadeModel {
         atividadeNome: json["atividade_nome"],
         atividadePeso: json["atividade_peso"],
         atividadeLimite: json["atividade_limite"],
+        atividadeMedida: json["atividade_medida"],
         curso: Curso.fromJson(json["curso"]),
     );
 
@@ -36,10 +39,11 @@ class AtividadeModel {
         "atividade_nome": atividadeNome,
         "atividade_peso": atividadePeso,
         "atividade_limite": atividadeLimite,
+        "atividade_medida": atividadeMedida,
         "curso": curso.toJson(),
     };
-    
-  static List<AtividadeModel> fromJsonList(List list) {  
+
+static List<AtividadeModel> fromJsonList(List list) {  
   if ( list == null ) return null;
   return list
     .map<AtividadeModel>((item) => AtividadeModel.fromJson(item))
