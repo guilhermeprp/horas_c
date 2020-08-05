@@ -47,12 +47,16 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           ),
           Center(
             child: Container(
-              margin: EdgeInsets.only(top:10),
+              margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.only(left: 30, right: 30, top: 15),
               child: FindDropdown(
-
                 // Alterar tabela de items do dropdown
-                items: ["Análise de Sistemas", "Ciência da Computação", "Enfermagem", "Jornalismo"],
+                items: [
+                  "Análise de Sistemas",
+                  "Ciência da Computação",
+                  "Enfermagem",
+                  "Jornalismo"
+                ],
                 onChanged: (String item) => print(item),
                 selectedItem: "Ciência da Computação",
                 validate: (String item) {
@@ -67,14 +71,29 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
           ),
           Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(top:250),
-            child: FloatingActionButton(
-              
-              onPressed: (){ Navigator.pushNamed(context, '/Atividades'); }, 
-              child: Icon(Icons.done, size: 50),
+           alignment: Alignment.center,
+            margin: EdgeInsets.only(top: 200),
+            width: 500,
+            child: FittedBox(
+              child: RawMaterialButton(              
+                onPressed: () {
+                  Navigator.pushNamed(context, '/Atividades');
+                },
+
+                shape: CircleBorder(),
+                child: Icon(Icons.done, size: 80, color: Colors.white, ),
               ),
-          )
+            ),
+          ),
+          Container(
+              alignment: Alignment.bottomLeft,
+              margin: EdgeInsets.all(10),
+              child:
+                  Text('Powered by:', style: TextStyle(color: Colors.white))),
+          Container(
+          margin: EdgeInsets.only(left:90, bottom:1),
+          alignment: Alignment.bottomLeft,
+            child: Image.asset('assets/images/logo_gp.png',height: 35, width: 35, )),
         ],
       ),
     );
