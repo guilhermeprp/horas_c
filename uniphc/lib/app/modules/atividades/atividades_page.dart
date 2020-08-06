@@ -21,7 +21,7 @@ class _AtividadesPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[700],
+      backgroundColor: Color.fromRGBO(0, 30, 90, 1),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(43),
         child: AppBar(

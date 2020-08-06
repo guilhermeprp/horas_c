@@ -4,7 +4,7 @@ class DivisorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: Colors.grey[300],
+      color: Colors.black,
       height: 20,
       indent: 50,
       endIndent: 50,
