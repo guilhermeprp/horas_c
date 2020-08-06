@@ -1,0 +1,4 @@
+lib/app/shared/divisor/divisor_widget.dart
+test/app/shared/divisor/divisor_widget_test.dart
+lib/app/shared/divisor/divisor_controller.dart
+test/app/shared/divisor/divisor_controller_test.dart

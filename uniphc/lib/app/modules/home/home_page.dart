@@ -4,6 +4,7 @@ import 'package:find_dropdown/find_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
+import 'package:uniphc/app/shared/combobox/combobox_widget.dart';
 
 import 'home_controller.dart';
 
@@ -24,28 +25,30 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
       key: scaffoldKey,
       drawer: AbaNavegacao(),
-      // backgroundColor: Colors.indigo,
       body: Container(
         decoration: BoxDecoration(
           color: Color.fromRGBO(0, 30, 90, 1),
         ),
         child: Stack(
           children: <Widget>[
+            //Drawer customizado para Home
             Positioned(
                 left: 10,
-                top: 20,
+                top: 30,
                 child: IconButton(
                   icon: Icon(Icons.menu),
                   color: Colors.white,
                   onPressed: () => scaffoldKey.currentState.openDrawer(),
                 )),
+
+            // Logo do APP
             Center(
               child: Column(
                 children: <Widget>[
                   Container(
                       margin: EdgeInsets.only(top: 50),
-                      width: 200,
-                      height: 200,
+                      height: 230,
+                      width: 230,
                       child: Image.asset('assets/images/logo_app.png')),
                 ],
               ),
@@ -56,31 +59,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   child: Text('Selecione seu Curso:',
                       style: TextStyle(fontSize: 22, color: Colors.white))),
             ),
-            Center(
-              child: Container(
-                margin: EdgeInsets.only(top: 60),
-                padding: EdgeInsets.only(left: 30, right: 30, top: 15),
-                child: FindDropdown(
-                  // Alterar tabela de items do dropdown
-                  items: [
-                    "Análise de Sistemas",
-                    "Ciência da Computação",
-                    "Enfermagem",
-                    "Jornalismo"
-                  ],
-                  onChanged: (String item) => print(item),
-                  selectedItem: "Ciência da Computação",
-                  validate: (String item) {
-                    if (item == null)
-                      return "Required field";
-                    // else if (item == "Brasil")
-                    //   return "Invalid item";
-                    else
-                      return null; //return null to "no error"
-                  },
-                ),
-              ),
-            ),
+
+            ComboboxWidget(),
+
+            // Botão de confirmar Home app
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(top: 220),
@@ -99,6 +81,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ),
               ),
             ),
+
+            // Logo dos Criadores
             Container(
                 alignment: Alignment.bottomLeft,
                 margin: EdgeInsets.all(10),

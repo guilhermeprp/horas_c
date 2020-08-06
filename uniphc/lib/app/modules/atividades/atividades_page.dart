@@ -47,7 +47,6 @@ class _AtividadesPageState
                     atividadesController.listadeAtividades[index].atividadePeso,
                 medidaAtividade: atividadesController
                     .listadeAtividades[index].atividadeMedida,
-                // limiteAtividade: AtividadesController.listadeAtividades[index].atividadeLimite.toDouble(),
               );
             },
           );
