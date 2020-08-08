@@ -18,12 +18,15 @@ class AbaNavegacao extends StatelessWidget {
           child: Drawer(
             child: ListView(
               children: <Widget>[
+                // Logo
                 Container(
                   margin: EdgeInsets.only(top: 20),
                   height: 180,
                   width: 180,
                   child: Image.asset('assets/images/logo_app.png'),
                 ),
+
+                // Home
                 Padding(
                   padding: const EdgeInsets.only(top: 50),
                   child: ListTile(
@@ -38,6 +41,8 @@ class AbaNavegacao extends StatelessWidget {
                     },
                   ),
                 ),
+
+                // Atividades
                 ListTile(
                   leading: Icon(Icons.assignment, color: Colors.white),
                   title: Text('Atividades',
@@ -49,6 +54,8 @@ class AbaNavegacao extends StatelessWidget {
                     Navigator.pushNamed(context, '/Atividades');
                   },
                 ),
+
+                // Estatísticas
                 ListTile(
                   leading: Icon(Icons.data_usage, color: Colors.white),
                   title: Text('Estatísticas',
@@ -57,6 +64,8 @@ class AbaNavegacao extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w300)),
                 ),
+
+                // Manuais
                 ListTile(
                   leading: Icon(Icons.picture_as_pdf, color: Colors.white),
                   title: Text('Manuais',

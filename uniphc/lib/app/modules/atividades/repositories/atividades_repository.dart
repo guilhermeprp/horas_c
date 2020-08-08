@@ -6,9 +6,8 @@ class AtividadesRepository extends Disposable {
   final HasuraConnect _hasuraConnect;
 
   AtividadesRepository(this._hasuraConnect);
-  
-  
-  Future<List<AtividadeModel>> getAtividade() async{
+
+  Future<List<AtividadeModel>> getAtividade() async {
     var query = '''
       query getAtividades {
         tipo_atividades {
@@ -22,11 +21,10 @@ class AtividadesRepository extends Disposable {
           }
         }
       }''';
-    var snapshot = await _hasuraConnect.query(query); 
+    var snapshot = await _hasuraConnect.query(query);
 
-        return AtividadeModel.fromJsonList(snapshot["data"]["tipo_atividades"] as List); 
-
-  
+    return AtividadeModel.fromJsonList(
+        snapshot["data"]["tipo_atividades"] as List);
   }
 
   //dispose will be called automatically

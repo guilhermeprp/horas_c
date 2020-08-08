@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
+import 'package:uniphc/app/modules/atividades/atividades_controller.dart';
+
+AtividadesController atividadesController;
 
 class CardAtividadeWidget extends StatelessWidget {
   final String nomeAtividade;
@@ -12,42 +14,34 @@ class CardAtividadeWidget extends StatelessWidget {
     @required this.pesoAtividade,
     @required this.medidaAtividade,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12),
-      child: Card(
-        child: Stack(
+      child: Container(
+        height: 128,
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: 128,
-              width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    nomeAtividade,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              nomeAtividade,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    pesoAtividade,
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Text(
-                          pesoAtividade,
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                      Text(medidaAtividade,
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.normal)),
-                    ],
-                  ),
-                  SliderWidget(),
-                ],
-              ),
+                ),
+                Text(medidaAtividade,
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal)),
+              ],
             ),
           ],
         ),

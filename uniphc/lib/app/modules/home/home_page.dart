@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:find_dropdown/find_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
@@ -44,6 +43,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             // Logo do APP
             Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
                       margin: EdgeInsets.only(top: 50),
@@ -60,7 +60,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       style: TextStyle(fontSize: 22, color: Colors.white))),
             ),
 
-            ComboboxWidget(),
+            // Aba/Box de seleção
+            ComboboxWidget(
+              items: [
+                Model("01", "Análise de Sistemas"),
+                Model("02", "Ciência da Computação"),
+                Model("03", "Enfermagem"),
+                Model("04", "Jornalismo")
+              ],
+              onChanged: (item) {
+                print(item.curso);
+              },
+              itemSelecionado: Model("01", "Análise de Sistemas"),
+            ),
 
             // Botão de confirmar Home app
             Container(

@@ -1,8 +1,10 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
+import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_widget.dart';
 import 'atividades_controller.dart';
 
@@ -18,6 +20,7 @@ class _AtividadesPageState
     extends ModularState<AtividadesPage, AtividadesController> {
   //use 'controller' variable to access controller
   AtividadesController atividadesController = AtividadesModule.to.get();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,22 +43,45 @@ class _AtividadesPageState
           return ListView.builder(
             itemCount: atividadesController.listadeAtividades.length,
             itemBuilder: (BuildContext context, int index) {
-              return CardAtividadeWidget(
-                nomeAtividade:
-                    atividadesController.listadeAtividades[index].atividadeNome,
-                pesoAtividade: "Peso " +
-                    atividadesController.listadeAtividades[index].atividadePeso,
-                medidaAtividade: atividadesController
-                    .listadeAtividades[index].atividadeMedida,
+              //Lista de Cards contendo atividades
+              return AnimatedCard(
+                direction: AnimatedCardDirection.right,
+                initDelay: Duration(milliseconds: 0),
+                duration: Duration(seconds: 1),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Card(
+                    child: Stack(
+                      children: <Widget>[
+                        CardAtividadeWidget(
+                          nomeAtividade: atividadesController
+                              .listadeAtividades[index].atividadeNome,
+                          pesoAtividade: "Peso " +
+                              atividadesController
+                                  .listadeAtividades[index].atividadePeso,
+                          medidaAtividade: atividadesController
+                              .listadeAtividades[index].atividadeMedida,
+                        ),
+                        SliderWidget(
+                            limiteAtividade: atividadesController
+                                .listadeAtividades[index].atividadeLimite),
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
           );
         },
       ),
 
+      // TODO: Alterar para calcular as atividades e ir para a tela de estatísticas
+
+      //Botão para pagina de estatísticas
       floatingActionButton: FloatingActionButton(
-        // Alterar para calcular as atividades e ir para a tela de estatísticas
-        onPressed: null,
+        onPressed: () {
+          Navigator.pushNamed(context, "/");
+        },
         backgroundColor: Colors.green[800],
         child: Icon(Icons.alarm_on, size: 40, color: Colors.white),
       ),
