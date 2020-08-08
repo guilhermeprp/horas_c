@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class SliderWidget extends StatefulWidget {
   final int limiteAtividade;
-  const SliderWidget({Key key, @required this.limiteAtividade})
+  final double pesoAtividade;
+  const SliderWidget(
+      {Key key, @required this.limiteAtividade, @required this.pesoAtividade})
       : super(key: key);
 
   @override
@@ -20,7 +22,7 @@ class _SliderWidgetState extends State<SliderWidget> {
       child: Row(
         children: <Widget>[
           Container(
-            width: 290,
+            width: 317,
             child: Slider(
               min: 0,
               max: widget.limiteAtividade.toDouble(),
@@ -33,8 +35,7 @@ class _SliderWidgetState extends State<SliderWidget> {
                 setState(() => valor = newValue.round());
               },
               onChangeEnd: (double valor) {
-                var estatistica = valor * 1 / 3;
-                print(estatistica.round());
+                guardar();
               },
             ),
           ),
@@ -42,5 +43,12 @@ class _SliderWidgetState extends State<SliderWidget> {
         ],
       ),
     );
+  }
+
+  void guardar() {
+    // num peso = widget.pesoAtividade as num;
+    var estatistica = valor / widget.pesoAtividade;
+    print(estatistica.round());
+    // print(widget.pesoAtividade);
   }
 }

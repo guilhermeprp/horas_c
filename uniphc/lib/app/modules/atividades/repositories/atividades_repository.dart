@@ -8,14 +8,15 @@ class AtividadesRepository extends Disposable {
   AtividadesRepository(this._hasuraConnect);
 
   Future<List<AtividadeModel>> getAtividade() async {
-    var query = '''
+    var query = ''' 
       query getAtividades {
-        tipo_atividades {
+        tipo_atividades(order_by: {atividade_limite: desc}) {
           id
           atividade_nome
           atividade_peso
           atividade_limite
           atividade_medida
+          atividade_peso_estatisticas
           curso {
             curso_hora_minima
           }

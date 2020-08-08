@@ -63,8 +63,12 @@ class _AtividadesPageState
                               .listadeAtividades[index].atividadeMedida,
                         ),
                         SliderWidget(
-                            limiteAtividade: atividadesController
-                                .listadeAtividades[index].atividadeLimite),
+                          limiteAtividade: atividadesController
+                              .listadeAtividades[index].atividadeLimite,
+                          pesoAtividade: atividadesController
+                              .listadeAtividades[index]
+                              .atividadePesoEstatisticas,
+                        ),
                       ],
                     ),
                   ),
