@@ -61,6 +61,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
 
             // Aba/Box de seleção
+            // TODO: Criar filtro para pegar atividades por curso escolhido
             ComboboxWidget(
               items: [
                 Model("01", "Análise de Sistemas"),
