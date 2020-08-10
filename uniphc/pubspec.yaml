@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   animated_card: ^1.0.0+8
+  build_test: ^1.2.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 dev_dependencies:
@@ -76,5 +77,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-scripts: 
+scripts: null
 
