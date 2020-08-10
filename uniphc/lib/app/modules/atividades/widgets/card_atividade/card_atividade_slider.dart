@@ -22,7 +22,7 @@ class _SliderWidgetState extends State<SliderWidget> {
       child: Row(
         children: <Widget>[
           Container(
-            width: 317,
+            width: MediaQuery.of(context).size.width * 0.8,
             child: Slider(
               min: 0,
               max: widget.limiteAtividade.toDouble(),

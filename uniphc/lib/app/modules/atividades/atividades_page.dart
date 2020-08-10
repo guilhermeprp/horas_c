@@ -46,8 +46,8 @@ class _AtividadesPageState
               //Lista de Cards contendo atividades
               return AnimatedCard(
                 direction: AnimatedCardDirection.right,
-                initDelay: Duration(milliseconds: 0),
-                duration: Duration(seconds: 1),
+                initDelay: Duration(milliseconds: 1),
+                duration: Duration(seconds: 2),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Card(
