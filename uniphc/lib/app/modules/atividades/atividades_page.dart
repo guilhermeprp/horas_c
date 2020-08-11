@@ -2,6 +2,7 @@ import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:hasura_connect/hasura_connect.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
@@ -18,6 +19,7 @@ class AtividadesPage extends StatefulWidget {
 
 class _AtividadesPageState
     extends ModularState<AtividadesPage, AtividadesController> {
+  var atividades;
   //use 'controller' variable to access controller
   AtividadesController atividadesController = AtividadesModule.to.get();
 
@@ -41,7 +43,8 @@ class _AtividadesPageState
       body: Observer(
         builder: (BuildContext context) {
           return ListView.builder(
-            itemCount: atividadesController.listadeAtividades.length,
+            itemCount: atividades =
+                atividadesController.listadeAtividades.length,
             itemBuilder: (BuildContext context, int index) {
               //Lista de Cards contendo atividades
               return AnimatedCard(

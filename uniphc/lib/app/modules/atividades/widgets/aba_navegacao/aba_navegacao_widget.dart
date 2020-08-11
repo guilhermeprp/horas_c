@@ -37,7 +37,7 @@ class AbaNavegacao extends StatelessWidget {
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onTap: () {
-                          Navigator.pushNamed(context, '/');
+                          Navigator.pushNamed(context, '/Home');
                         },
                       ),
 
