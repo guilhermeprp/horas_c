@@ -9,14 +9,6 @@ import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_ativid
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_widget.dart';
 import 'atividades_controller.dart';
 
-class AtividadesPage extends StatefulWidget {
-  final String title;
-  const AtividadesPage({Key key, this.title = "Atividades"}) : super(key: key);
-
-  @override
-  _AtividadesPageState createState() => _AtividadesPageState();
-}
-
 class _AtividadesPageState
     extends ModularState<AtividadesPage, AtividadesController> {
   var atividades;
@@ -94,4 +86,12 @@ class _AtividadesPageState
       ),
     );
   }
+}
+
+class AtividadesPage extends StatefulWidget {
+  final String title;
+  const AtividadesPage({Key key, this.title = "Atividades"}) : super(key: key);
+
+  @override
+  _AtividadesPageState createState() => _AtividadesPageState();
 }
