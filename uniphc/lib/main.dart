@@ -1,21 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uniphc/screens/home.dart';
+import 'package:uniphc/app/app_module.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: MyHomePage(),
-      ), 
-    );
-  }
-}
-
+void main() => runApp(ModularApp(module: AppModule()));

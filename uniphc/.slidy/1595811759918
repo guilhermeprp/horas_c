@@ -1,0 +1,4 @@
+lib/app/modules/home/widgets/card_atividade/card_atividade_widget.dart
+test/app/modules/home/widgets/card_atividade/card_atividade_widget_test.dart
+lib/app/modules/home/widgets/card_atividade/card_atividade_controller.dart
+test/app/modules/home/widgets/card_atividade/card_atividade_controller_test.dart
