@@ -2,7 +2,7 @@ import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hasura_connect/hasura_connect.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
@@ -82,7 +82,7 @@ class _AtividadesPageState
           Navigator.pushNamed(context, "/");
         },
         backgroundColor: Colors.green[800],
-        child: Icon(Icons.alarm_on, size: 40, color: Colors.white),
+        child: Icon(MdiIcons.clockCheckOutline, size: 40, color: Colors.white),
       ),
     );
   }

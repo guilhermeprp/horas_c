@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:uniphc/app/app_widget.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/splash/splash_module.dart';
-import 'package:uniphc/app/modules/splash/splash_page.dart';
 
 import 'modules/home/home_module.dart';
 

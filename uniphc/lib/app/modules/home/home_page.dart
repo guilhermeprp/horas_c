@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/shared/combobox/combobox_widget.dart';
 import 'home_controller.dart';
@@ -48,20 +48,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   onPressed: () => scaffoldKey.currentState.openDrawer(),
                 )),
 
-            // Logo APP
+            // Nome APP
             Container(
               margin: EdgeInsets.only(
                   top: 115, left: MediaQuery.of(context).size.width * 0.3),
-              child: Expanded(
-                child: Text('Horas C',
-                    style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontFamily: 'ArialRounded')),
-              ),
+              child: Text('Horas C',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontFamily: 'ArialRounded')),
             ),
 
+            //Selecione seu curso
             Container(
               margin: EdgeInsets.only(top: 275),
               child: Column(
@@ -83,7 +82,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       Model("04", "Jornalismo")
                     ],
                     onChanged: (item) {
-                      print(item.curso);
+                      print(item);
                     },
                     itemSelecionado: Model("01", "Análise de Sistemas"),
                   ),
@@ -101,7 +100,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   },
                   shape: CircleBorder(),
                   child: Icon(
-                    Icons.done,
+                    MdiIcons.checkboxMarkedCircleOutline,
                     size: width * 0.25,
                     color: Colors.white,
                   ),
