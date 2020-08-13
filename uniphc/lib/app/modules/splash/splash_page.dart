@@ -11,7 +11,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 4), () => Navigator.pushNamed(context, "/Home"));
+    Timer(Duration(seconds: 3), () => Navigator.pushNamed(context, "/Home"));
   }
 
   @override
@@ -20,12 +20,13 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
       body: Stack(
         children: <Widget>[
           Container(
-              decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/splash_screen_app.png"),
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/splash_screen_app.png"),
+                fit: BoxFit.cover,
+              ),
             ),
-          )),
+          ),
           Center(
             child: Container(
                 width: MediaQuery.of(context).size.width * 0.75,
@@ -38,7 +39,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
               radius: 30.0,
               dotRadius: 6.0,
             ),
-          )
+          ),
         ],
       ),
     );

@@ -31,11 +31,13 @@ class AbaNavegacao extends StatelessWidget {
                     children: [
                       ListTile(
                         leading: Icon(Icons.home, color: Colors.white),
-                        title: Text('Home',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300)),
+                        title: Text(
+                          'Home',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300),
+                        ),
                         onTap: () {
                           Navigator.pushNamed(context, '/Home');
                         },
@@ -44,11 +46,13 @@ class AbaNavegacao extends StatelessWidget {
                       // Atividades
                       ListTile(
                         leading: Icon(Icons.assignment, color: Colors.white),
-                        title: Text('Atividades',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300)),
+                        title: Text(
+                          'Atividades',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300),
+                        ),
                         onTap: () {
                           Navigator.pushNamed(context, '/Atividades');
                         },
@@ -57,22 +61,29 @@ class AbaNavegacao extends StatelessWidget {
                       // Estatísticas
                       ListTile(
                         leading: Icon(Icons.data_usage, color: Colors.white),
-                        title: Text('Estatísticas',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300)),
+                        title: Text(
+                          'Estatísticas',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300),
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/Estatisticas');
+                        },
                       ),
 
                       // Manuais
                       ListTile(
                         leading:
                             Icon(Icons.picture_as_pdf, color: Colors.white),
-                        title: Text('Manuais',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300)),
+                        title: Text(
+                          'Manuais',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300),
+                        ),
                       ),
                     ],
                   ),

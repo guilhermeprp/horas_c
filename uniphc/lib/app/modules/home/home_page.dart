@@ -40,37 +40,46 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
             //Drawer customizado para Home
             Positioned(
-                left: 10,
-                top: 30,
-                child: IconButton(
-                  icon: Icon(Icons.menu),
-                  color: Colors.white,
-                  onPressed: () => scaffoldKey.currentState.openDrawer(),
-                )),
+              left: 10,
+              top: 30,
+              child: IconButton(
+                icon: Icon(Icons.menu),
+                color: Colors.white,
+                onPressed: () => scaffoldKey.currentState.openDrawer(),
+              ),
+            ),
 
             // Nome APP
             Container(
+              alignment: Alignment.center,
               margin: EdgeInsets.only(
-                  top: 115, left: MediaQuery.of(context).size.width * 0.3),
-              child: Text('Horas C',
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: 'ArialRounded')),
+                  bottom: MediaQuery.of(context).size.height * 0.58),
+              child: Text(
+                'Horas C',
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: 'ArialRounded'),
+              ),
             ),
 
             //Selecione seu curso
             Container(
-              margin: EdgeInsets.only(top: 275),
+              // alignment: Alignment.bottomCenter,
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.415),
               child: Column(
                 children: <Widget>[
                   Container(
-                      child: Text('Selecione seu Curso:',
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.white,
-                          ))),
+                    child: Text(
+                      'Selecione seu Curso:',
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
 
                   // Aba/Box de seleção
                   // TODO: Criar filtro para pegar atividades por curso escolhido
@@ -92,7 +101,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             // Botão de confirmar Home app
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 220),
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.5),
               child: FittedBox(
                 child: RawMaterialButton(
                   onPressed: () {
@@ -114,15 +124,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               child: Row(
                 children: <Widget>[
                   Container(
-                      alignment: Alignment.bottomLeft,
-                      child: Text('Powered by:',
-                          style: TextStyle(color: Colors.white))),
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      'Powered by:',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                   Container(
-                      width: MediaQuery.of(context).size.height * 0.05,
-                      alignment: Alignment.bottomLeft,
-                      child: Image.asset(
-                        'assets/images/logo_gp.png',
-                      )),
+                    width: MediaQuery.of(context).size.height * 0.05,
+                    alignment: Alignment.bottomLeft,
+                    child: Image.asset(
+                      'assets/images/logo_gp.png',
+                    ),
+                  ),
                 ],
               ),
             ),

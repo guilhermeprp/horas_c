@@ -34,43 +34,7 @@ class _AtividadesPageState
 
       body: Observer(
         builder: (BuildContext context) {
-          return ListView.builder(
-            itemCount: atividades =
-                atividadesController.listadeAtividades.length,
-            itemBuilder: (BuildContext context, int index) {
-              //Lista de Cards contendo atividades
-              return AnimatedCard(
-                direction: AnimatedCardDirection.right,
-                initDelay: Duration(milliseconds: 1),
-                duration: Duration(seconds: 2),
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Card(
-                    child: Stack(
-                      children: <Widget>[
-                        CardAtividadeWidget(
-                          nomeAtividade: atividadesController
-                              .listadeAtividades[index].atividadeNome,
-                          pesoAtividade: "Peso " +
-                              atividadesController
-                                  .listadeAtividades[index].atividadePeso,
-                          medidaAtividade: atividadesController
-                              .listadeAtividades[index].atividadeMedida,
-                        ),
-                        SliderWidget(
-                          limiteAtividade: atividadesController
-                              .listadeAtividades[index].atividadeLimite,
-                          pesoAtividade: atividadesController
-                              .listadeAtividades[index]
-                              .atividadePesoEstatisticas,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          );
+          return buildListView();
         },
       ),
 
@@ -79,11 +43,57 @@ class _AtividadesPageState
       //Botão para pagina de estatísticas
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, "/");
+          Navigator.pushNamed(context, "/Estatisticas");
         },
         backgroundColor: Colors.green[800],
         child: Icon(MdiIcons.clockCheckOutline, size: 40, color: Colors.white),
       ),
+    );
+  }
+
+  ListView buildListView() {
+    if (atividadesController.listadeAtividades.length == null) {
+      CircularProgressIndicator();
+    }
+    return ListView.builder(
+      itemCount: atividades = atividadesController.listadeAtividades.length,
+      itemBuilder: (BuildContext context, int index) {
+        //Lista de Cards contendo atividades
+        return AnimatedCard(
+          direction: AnimatedCardDirection.right,
+          initDelay: Duration(milliseconds: 1),
+          duration: Duration(seconds: 2),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(30),
+                ),
+              ),
+              child: Stack(
+                children: <Widget>[
+                  CardAtividadeWidget(
+                    nomeAtividade: atividadesController
+                        .listadeAtividades[index].atividadeNome,
+                    pesoAtividade: "Peso " +
+                        atividadesController
+                            .listadeAtividades[index].atividadePeso,
+                    medidaAtividade: atividadesController
+                        .listadeAtividades[index].atividadeMedida,
+                  ),
+                  SliderWidget(
+                    limiteAtividade: atividadesController
+                        .listadeAtividades[index].atividadeLimite,
+                    pesoAtividade: atividadesController
+                        .listadeAtividades[index].atividadePesoEstatisticas,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

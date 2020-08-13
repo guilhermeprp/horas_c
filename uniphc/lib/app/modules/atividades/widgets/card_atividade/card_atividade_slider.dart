@@ -48,7 +48,9 @@ class _SliderWidgetState extends State<SliderWidget> {
   void guardar() {
     // num peso = widget.pesoAtividade as num;
     var estatistica = valor / widget.pesoAtividade;
+
     print(estatistica.round());
+
     // print(widget.pesoAtividade);
   }
 }

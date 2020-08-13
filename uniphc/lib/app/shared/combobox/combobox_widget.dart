@@ -17,7 +17,6 @@ class ComboboxWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        // margin: EdgeInsets.only(top: 60),
         padding: EdgeInsets.only(left: 50, right: 50, top: 5),
         child: FindDropdown<Model>(
           // Alterar tabela de items do dropdown
@@ -37,6 +36,7 @@ class ComboboxWidget extends StatelessWidget {
           dropdownBuilder: (_, model) {
             return Container(
               height: 49,
+              alignment: Alignment.centerRight,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(0, 30, 90, 1),
                 borderRadius: BorderRadius.circular(20),
@@ -56,7 +56,7 @@ class ComboboxWidget extends StatelessWidget {
               child: Container(
                 child: ListTile(
                   leading: Text(
-                    model.curso,
+                    "Ciência da Computação",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
