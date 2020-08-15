@@ -19,7 +19,17 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       drawer: AbaNavegacao(),
       body: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 30, 90, 1),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0, 0.2, 0.8, 1],
+            colors: [
+              Color.fromRGBO(0, 15, 45, 1),
+              Color.fromRGBO(0, 30, 90, 1),
+              Color.fromRGBO(0, 30, 90, 1),
+              Color.fromRGBO(0, 15, 45, 1),
+            ],
+          ),
         ),
         child: Stack(
           children: <Widget>[

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -18,6 +20,7 @@ class _AtividadesPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(43),
@@ -41,20 +44,75 @@ class _AtividadesPageState
       // TODO: Alterar para calcular as atividades e ir para a tela de estatísticas
 
       //Botão para pagina de estatísticas
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, "/Estatisticas");
-        },
-        backgroundColor: Colors.green[800],
-        child: Icon(MdiIcons.clockCheckOutline, size: 40, color: Colors.white),
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(top: 27),
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 17, 153, 142),
+                Color.fromARGB(255, 56, 239, 125)
+              ],
+            ),
+          ),
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/Estatisticas");
+            },
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            child:
+                Icon(MdiIcons.clockCheckOutline, size: 40, color: Colors.white),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // Barra de navegação inferior
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(50, 0, 50, 5),
+        child: Container(
+          height: 55,
+          child: ClipRRect(
+            clipBehavior: Clip.antiAlias,
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+              items: [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Icon(
+                      Icons.home,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                  ),
+                  title: SizedBox.shrink(),
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Icon(
+                      Icons.picture_as_pdf,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                  ),
+                  title: SizedBox.shrink(),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 
+  //Lista de atividades
   ListView buildListView() {
-    if (atividadesController.listadeAtividades.length == null) {
-      CircularProgressIndicator();
-    }
     return ListView.builder(
       itemCount: atividades = atividadesController.listadeAtividades.length,
       itemBuilder: (BuildContext context, int index) {
@@ -65,15 +123,11 @@ class _AtividadesPageState
           duration: Duration(seconds: 2),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(30),
-                ),
-              ),
-              child: Stack(
-                children: <Widget>[
-                  CardAtividadeWidget(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  // color: Colors.amber,
+                  child: CardAtividadeWidget(
                     nomeAtividade: atividadesController
                         .listadeAtividades[index].atividadeNome,
                     pesoAtividade: "Peso " +
@@ -82,14 +136,14 @@ class _AtividadesPageState
                     medidaAtividade: atividadesController
                         .listadeAtividades[index].atividadeMedida,
                   ),
-                  SliderWidget(
-                    limiteAtividade: atividadesController
-                        .listadeAtividades[index].atividadeLimite,
-                    pesoAtividade: atividadesController
-                        .listadeAtividades[index].atividadePesoEstatisticas,
-                  ),
-                ],
-              ),
+                ),
+                SliderWidget(
+                  limiteAtividade: atividadesController
+                      .listadeAtividades[index].atividadeLimite,
+                  pesoAtividade: atividadesController
+                      .listadeAtividades[index].atividadePesoEstatisticas,
+                ),
+              ],
             ),
           ),
         );

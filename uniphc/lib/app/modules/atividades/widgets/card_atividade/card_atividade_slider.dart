@@ -39,7 +39,10 @@ class _SliderWidgetState extends State<SliderWidget> {
               },
             ),
           ),
-          Text(valor.round().toString()),
+          Text(
+            valor.round().toString(),
+            style: TextStyle(color: Colors.white),
+          ),
         ],
       ),
     );

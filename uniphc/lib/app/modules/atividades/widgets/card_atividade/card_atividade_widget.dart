@@ -17,34 +17,73 @@ class CardAtividadeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12),
-      child: Container(
-        height: 128,
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
+      margin: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 20,
+            spreadRadius: 0,
+            offset: Offset(2, 1),
+          ),
+        ],
+        gradient: LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            stops: [
+              0,
+              0.3,
+              0.7,
+              1
+            ],
+            colors: [
+              Colors.indigo[900],
+              Colors.indigo[800],
+              Colors.indigo[800],
+              Colors.indigo[900],
+            ]),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      height: 128,
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 5.0),
+            child: Text(
               nomeAtividade,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
-            Row(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Row(
               children: <Widget>[
                 Expanded(
                   child: Text(
                     pesoAtividade,
-                    style:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white),
                   ),
                 ),
                 Text(medidaAtividade,
-                    style:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal)),
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white)),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
