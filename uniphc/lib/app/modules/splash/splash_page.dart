@@ -32,9 +32,8 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                 width: MediaQuery.of(context).size.width * 0.75,
                 child: Image.asset("assets/images/logo_app.png")),
           ),
-          Positioned(
-            left: 130,
-            bottom: 50,
+          Container(
+            alignment: Alignment.bottomCenter,
             child: Loading(
               radius: 30.0,
               dotRadius: 6.0,

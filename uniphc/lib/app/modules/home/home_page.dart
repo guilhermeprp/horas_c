@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/shared/combobox/combobox_widget.dart';
+import 'package:uniphc/app/shared/orientation/orientation.dart';
 import 'home_controller.dart';
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
@@ -13,24 +15,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    portraitModeOnly();
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: scaffoldKey,
       drawer: AbaNavegacao(),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0, 0.2, 0.8, 1],
-            colors: [
-              Color.fromRGBO(0, 15, 45, 1),
-              Color.fromRGBO(0, 30, 90, 1),
-              Color.fromRGBO(0, 30, 90, 1),
-              Color.fromRGBO(0, 15, 45, 1),
-            ],
-          ),
-        ),
+        color: Color.fromRGBO(0, 30, 90, 1),
         child: Stack(
           children: <Widget>[
             // Logo do Background
@@ -78,7 +69,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             Container(
               // alignment: Alignment.bottomCenter,
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.415),
+                  top: MediaQuery.of(context).size.height * 0.43),
               child: Column(
                 children: <Widget>[
                   Container(
@@ -125,29 +116,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     color: Colors.white,
                   ),
                 ),
-              ),
-            ),
-
-            // Logo dos Criadores
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      'Powered by:',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.height * 0.05,
-                    alignment: Alignment.bottomLeft,
-                    child: Image.asset(
-                      'assets/images/logo_gp.png',
-                    ),
-                  ),
-                ],
               ),
             ),
           ],

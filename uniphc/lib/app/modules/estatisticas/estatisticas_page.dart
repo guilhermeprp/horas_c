@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/shared/divisor/divisor_widget.dart';
+import 'package:uniphc/app/shared/orientation/orientation.dart';
 import 'estatisticas_controller.dart';
 
 class EstatisticasPage extends StatefulWidget {
@@ -23,6 +25,7 @@ class _EstatisticasPageState
 
   @override
   Widget build(BuildContext context) {
+    portraitModeOnly();
     return Scaffold(
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
       appBar: PreferredSize(

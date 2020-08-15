@@ -14,13 +14,14 @@ class AbaNavegacao extends StatelessWidget {
           sigmaY: 30.0,
         ),
         child: Container(
+          width: MediaQuery.of(context).size.height * 0.3,
           child: Drawer(
             child: ListView(
               children: <Widget>[
                 // Logo
                 Container(
                   margin: EdgeInsets.only(top: 30),
-                  height: MediaQuery.of(context).size.height * 0.27,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: Image.asset('assets/images/logo_app.png'),
                 ),
 
@@ -86,6 +87,30 @@ class AbaNavegacao extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                // Logo dos Criadores
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 100, 0, 10),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Powered by:',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.height * 0.05,
+                          alignment: Alignment.bottomLeft,
+                          child: Image.asset(
+                            'assets/images/logo_gp.png',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

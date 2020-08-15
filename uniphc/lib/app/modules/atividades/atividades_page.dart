@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -9,6 +10,7 @@ import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_widget.dart';
+import 'package:uniphc/app/shared/orientation/orientation.dart';
 import 'atividades_controller.dart';
 
 class _AtividadesPageState
@@ -19,6 +21,7 @@ class _AtividadesPageState
 
   @override
   Widget build(BuildContext context) {
+    portraitModeOnly();
     return Scaffold(
       extendBody: true,
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
@@ -45,8 +48,10 @@ class _AtividadesPageState
 
       //Botão para pagina de estatísticas
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(top: 27),
+        padding: EdgeInsets.only(top: 55),
         child: Container(
+          height: 60,
+          width: 60,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: LinearGradient(
@@ -60,50 +65,65 @@ class _AtividadesPageState
             onPressed: () {
               Navigator.pushNamed(context, "/Estatisticas");
             },
-            elevation: 0,
             backgroundColor: Colors.transparent,
             child:
-                Icon(MdiIcons.clockCheckOutline, size: 40, color: Colors.white),
+                Icon(MdiIcons.clockCheckOutline, size: 45, color: Colors.white),
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // Barra de navegação inferior
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(50, 0, 50, 5),
+        padding: const EdgeInsets.fromLTRB(50, 0, 50, 10),
         child: Container(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.indigo, width: 0.3),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.indigo[900], Colors.blue],
+            ),
+          ),
           height: 55,
           child: ClipRRect(
             clipBehavior: Clip.antiAlias,
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
-            child: BottomNavigationBar(
-              backgroundColor: Color.fromRGBO(255, 255, 255, 1),
-              items: [
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Icon(
-                      Icons.home,
-                      color: Colors.grey,
-                      size: 35,
+            child: BottomAppBar(
+              color: Colors.transparent,
+              notchMargin: 1,
+              elevation: 0,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 3),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.home,
+                        size: 35,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/Home");
+                      },
                     ),
-                  ),
-                  title: SizedBox.shrink(),
-                ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Icon(
-                      Icons.picture_as_pdf,
-                      color: Colors.grey,
-                      size: 35,
+                    IconButton(
+                      icon: Icon(
+                        Icons.picture_as_pdf,
+                        size: 35,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/");
+                      },
                     ),
-                  ),
-                  title: SizedBox.shrink(),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
