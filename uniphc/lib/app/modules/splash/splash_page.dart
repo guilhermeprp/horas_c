@@ -7,11 +7,17 @@ import 'splash_controller.dart';
 
 class _SplashPageState extends ModularState<SplashPage, SplashController> {
   //use 'controller' variable to access controller
+  List<Future> precaches = [
+    Future.delayed(Duration(seconds: 2)),
+    // Modular.get<>()()
+  ];
 
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () => Navigator.pushNamed(context, "/Home"));
+    Future.wait(precaches).then(
+      (value) => Modular.to.pushReplacementNamed("/Home"),
+    );
   }
 
   @override
