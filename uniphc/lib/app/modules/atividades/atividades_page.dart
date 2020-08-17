@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,18 +9,16 @@ import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_widget.dart';
-import 'package:uniphc/app/shared/orientation/orientation.dart';
 import 'atividades_controller.dart';
 
 class _AtividadesPageState
     extends ModularState<AtividadesPage, AtividadesController> {
   var atividades;
-  //use 'controller' variable to access controller
+  // use 'controller' variable to access controller
   AtividadesController atividadesController = AtividadesModule.to.get();
 
   @override
   Widget build(BuildContext context) {
-    portraitModeOnly();
     return Scaffold(
       extendBody: true,
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
@@ -35,9 +32,10 @@ class _AtividadesPageState
         ),
       ),
 
-      // Drawer side bar do aplicativo
+      //# Drawer side bar do aplicativo
       drawer: AbaNavegacao(),
 
+      //# Chama List View
       body: Observer(
         builder: (BuildContext context) {
           return buildListView();
@@ -46,7 +44,7 @@ class _AtividadesPageState
 
       // TODO: Alterar para calcular as atividades e ir para a tela de estatísticas
 
-      //Botão para pagina de estatísticas
+      //# Botão para pagina de estatísticas
       floatingActionButton: Padding(
         padding: EdgeInsets.only(top: 55),
         child: Container(
@@ -72,7 +70,8 @@ class _AtividadesPageState
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // Barra de navegação inferior
+
+      //# Barra de navegação inferior
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(50, 0, 50, 10),
         child: Container(
@@ -131,12 +130,12 @@ class _AtividadesPageState
     );
   }
 
-  //Lista de atividades
+  //# Builder da lista de atividades
   ListView buildListView() {
     return ListView.builder(
       itemCount: atividades = atividadesController.listadeAtividades.length,
       itemBuilder: (BuildContext context, int index) {
-        //Lista de Cards contendo atividades
+        //# Lista de Cards contendo atividades
         return AnimatedCard(
           direction: AnimatedCardDirection.right,
           initDelay: Duration(milliseconds: 1),
@@ -162,6 +161,8 @@ class _AtividadesPageState
                       .listadeAtividades[index].atividadeLimite,
                   pesoAtividade: atividadesController
                       .listadeAtividades[index].atividadePesoEstatisticas,
+                  tipoAtividade: atividadesController
+                      .listadeAtividades[index].atividadeNome,
                 ),
               ],
             ),

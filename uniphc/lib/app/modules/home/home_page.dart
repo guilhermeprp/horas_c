@@ -1,12 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/shared/combobox/combobox_widget.dart';
-import 'package:uniphc/app/shared/orientation/orientation.dart';
 import 'home_controller.dart';
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
@@ -15,7 +13,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    portraitModeOnly();
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: scaffoldKey,
@@ -24,7 +21,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         color: Color.fromRGBO(0, 30, 90, 1),
         child: Stack(
           children: <Widget>[
-            // Logo do Background
+            //# Logo do Background
             Opacity(
               opacity: 1,
               child: Container(
@@ -39,7 +36,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
             ),
 
-            //Drawer customizado para Home
+            //# Drawer customizado para Home
             Positioned(
               left: 10,
               top: 30,
@@ -50,7 +47,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
             ),
 
-            // Nome APP
+            //# Nome APP
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(
@@ -65,9 +62,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
             ),
 
-            //Selecione seu curso
+            //# Selecione seu curso
             Container(
-              // alignment: Alignment.bottomCenter,
               margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.43),
               child: Column(
@@ -82,7 +78,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     ),
                   ),
 
-                  // Aba/Box de seleção
+                  //# Aba/Box de seleção
                   // TODO: Criar filtro para pegar atividades por curso escolhido
                   ComboboxWidget(
                     items: [
@@ -99,7 +95,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ],
               ),
             ),
-            // Botão de confirmar Home app
+
+            //# Botão de confirmar Home app
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(
