@@ -15,7 +15,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      key: scaffoldKey,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       drawer: AbaNavegacao(),
       body: Container(
         color: Color.fromRGBO(0, 30, 90, 1),
@@ -33,17 +37,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   alignment: FractionalOffset.centerRight,
                   image: AssetImage('assets/images/logo_app.png'),
                 )),
-              ),
-            ),
-
-            //# Drawer customizado para Home
-            Positioned(
-              left: 10,
-              top: 30,
-              child: IconButton(
-                icon: Icon(Icons.menu),
-                color: Colors.white,
-                onPressed: () => scaffoldKey.currentState.openDrawer(),
               ),
             ),
 
