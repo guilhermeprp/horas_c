@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 class SliderWidget extends StatefulWidget {
   final int limiteAtividade;
   final double pesoAtividade;
+  final String tipoAtividade;
   const SliderWidget(
-      {Key key, @required this.limiteAtividade, @required this.pesoAtividade})
+      {Key key,
+      @required this.limiteAtividade,
+      @required this.pesoAtividade,
+      @required this.tipoAtividade})
       : super(key: key);
 
   @override
@@ -14,6 +18,7 @@ class SliderWidget extends StatefulWidget {
 
 class _SliderWidgetState extends State<SliderWidget> {
   var valor = 0;
+  double estatisticas = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +34,12 @@ class _SliderWidgetState extends State<SliderWidget> {
               label: valor.round().toString(),
               divisions: widget.limiteAtividade,
               inactiveColor: Colors.blueGrey[400],
-              activeColor: Colors.indigo,
+              activeColor: Colors.blue[800],
               value: valor.toDouble(),
               onChanged: (double newValue) {
-                setState(() => valor = newValue.round());
+                setState(
+                  () => valor = newValue.round(),
+                );
               },
               onChangeEnd: (double valor) {
                 guardar();
@@ -49,11 +56,8 @@ class _SliderWidgetState extends State<SliderWidget> {
   }
 
   void guardar() {
-    // num peso = widget.pesoAtividade as num;
-    var estatistica = valor / widget.pesoAtividade;
-
-    print(estatistica.round());
-
-    // print(widget.pesoAtividade);
+    estatisticas = valor / widget.pesoAtividade;
+    print(widget.tipoAtividade);
+    print(estatisticas.round());
   }
 }

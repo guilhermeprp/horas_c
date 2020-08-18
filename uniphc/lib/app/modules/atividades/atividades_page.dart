@@ -141,7 +141,7 @@ class _AtividadesPageState
           initDelay: Duration(milliseconds: 1),
           duration: Duration(seconds: 2),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Stack(
               children: <Widget>[
                 Container(

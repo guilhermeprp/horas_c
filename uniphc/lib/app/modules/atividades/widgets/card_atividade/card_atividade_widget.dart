@@ -30,17 +30,9 @@ class CardAtividadeWidget extends StatelessWidget {
         gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
-            stops: [
-              0,
-              0.3,
-              0.7,
-              1
-            ],
             colors: [
-              Colors.indigo[900],
-              Colors.indigo[800],
-              Colors.indigo[800],
-              Colors.indigo[900],
+              Color.fromRGBO(30, 60, 114, 1),
+              Color.fromRGBO(42, 82, 152, 1),
             ]),
         borderRadius: BorderRadius.all(
           Radius.circular(20),
