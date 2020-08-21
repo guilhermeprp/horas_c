@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -22,71 +21,29 @@ class _AtividadesPageState
     return Scaffold(
       extendBody: true,
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
-      // appBar: PreferredSize(
-      //   preferredSize: Size.fromHeight(43),
-      //   child: AppBar(
-      //     backgroundColor: Colors.transparent,
-      //     centerTitle: true,
-      //     elevation: 0,
-      //   ),
-      // ),
 
-      // //# Drawer side bar do aplicativo
-      // drawer: AbaNavegacao(),
+      //# Drawer side bar do aplicativo
+      drawer: AbaNavegacao(),
 
       //# Chama List View
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            expandedHeight: 250,
+            expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text("data"),
+              title: Text("Atividades"),
+              centerTitle: true,
             ),
+            backgroundColor: Color.fromRGBO(30, 60, 114, 1),
+            // pinned: true,
+            floating: false,
+            elevation: 0,
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) => Observer(
                       builder: (BuildContext context) {
-                        return ListView.builder(
-                          physics: ClampingScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: atividades =
-                              atividadesController.listadeAtividades.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            //# Lista de Cards contendo atividades
-                            return Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Stack(
-                                children: <Widget>[
-                                  Container(
-                                    child: CardAtividadeWidget(
-                                      nomeAtividade: atividadesController
-                                          .listadeAtividades[index]
-                                          .atividadeNome,
-                                      pesoAtividade: "Peso " +
-                                          atividadesController
-                                              .listadeAtividades[index]
-                                              .atividadePeso,
-                                      medidaAtividade: atividadesController
-                                          .listadeAtividades[index]
-                                          .atividadeMedida,
-                                    ),
-                                  ),
-                                  SliderWidget(
-                                    limiteAtividade: atividadesController
-                                        .listadeAtividades[index]
-                                        .atividadeLimite,
-                                    pesoAtividade: atividadesController
-                                        .listadeAtividades[index]
-                                        .atividadePesoEstatisticas,
-                                    tipoAtividade: atividadesController
-                                        .listadeAtividades[index].atividadeNome,
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
+                        return buildListView();
                       },
                     ),
                 childCount: 1),
@@ -179,6 +136,43 @@ class _AtividadesPageState
           ),
         ),
       ),
+    );
+  }
+
+  ListView buildListView() {
+    return ListView.builder(
+      physics: ClampingScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: atividades = atividadesController.listadeAtividades.length,
+      itemBuilder: (BuildContext context, int index) {
+        //# Lista de Cards contendo atividades
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Stack(
+            children: <Widget>[
+              Container(
+                child: CardAtividadeWidget(
+                  nomeAtividade: atividadesController
+                      .listadeAtividades[index].atividadeNome,
+                  pesoAtividade: "Peso " +
+                      atividadesController
+                          .listadeAtividades[index].atividadePeso,
+                  medidaAtividade: atividadesController
+                      .listadeAtividades[index].atividadeMedida,
+                ),
+              ),
+              SliderWidget(
+                limiteAtividade: atividadesController
+                    .listadeAtividades[index].atividadeLimite,
+                pesoAtividade: atividadesController
+                    .listadeAtividades[index].atividadePesoEstatisticas,
+                tipoAtividade:
+                    atividadesController.listadeAtividades[index].atividadeNome,
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
