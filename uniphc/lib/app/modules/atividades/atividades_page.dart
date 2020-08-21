@@ -22,24 +22,76 @@ class _AtividadesPageState
     return Scaffold(
       extendBody: true,
       backgroundColor: Color.fromRGBO(0, 30, 90, 1),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(43),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(widget.title),
-        ),
-      ),
+      // appBar: PreferredSize(
+      //   preferredSize: Size.fromHeight(43),
+      //   child: AppBar(
+      //     backgroundColor: Colors.transparent,
+      //     centerTitle: true,
+      //     elevation: 0,
+      //   ),
+      // ),
 
-      //# Drawer side bar do aplicativo
-      drawer: AbaNavegacao(),
+      // //# Drawer side bar do aplicativo
+      // drawer: AbaNavegacao(),
 
       //# Chama List View
-      body: Observer(
-        builder: (BuildContext context) {
-          return buildListView();
-        },
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 250,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text("data"),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) => Observer(
+                      builder: (BuildContext context) {
+                        return ListView.builder(
+                          physics: ClampingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: atividades =
+                              atividadesController.listadeAtividades.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            //# Lista de Cards contendo atividades
+                            return Container(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Stack(
+                                children: <Widget>[
+                                  Container(
+                                    child: CardAtividadeWidget(
+                                      nomeAtividade: atividadesController
+                                          .listadeAtividades[index]
+                                          .atividadeNome,
+                                      pesoAtividade: "Peso " +
+                                          atividadesController
+                                              .listadeAtividades[index]
+                                              .atividadePeso,
+                                      medidaAtividade: atividadesController
+                                          .listadeAtividades[index]
+                                          .atividadeMedida,
+                                    ),
+                                  ),
+                                  SliderWidget(
+                                    limiteAtividade: atividadesController
+                                        .listadeAtividades[index]
+                                        .atividadeLimite,
+                                    pesoAtividade: atividadesController
+                                        .listadeAtividades[index]
+                                        .atividadePesoEstatisticas,
+                                    tipoAtividade: atividadesController
+                                        .listadeAtividades[index].atividadeNome,
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                childCount: 1),
+          ),
+        ],
       ),
 
       // TODO: Alterar para calcular as atividades e ir para a tela de estatísticas
@@ -131,46 +183,7 @@ class _AtividadesPageState
   }
 
   //# Builder da lista de atividades
-  ListView buildListView() {
-    return ListView.builder(
-      itemCount: atividades = atividadesController.listadeAtividades.length,
-      itemBuilder: (BuildContext context, int index) {
-        //# Lista de Cards contendo atividades
-        return AnimatedCard(
-          direction: AnimatedCardDirection.right,
-          initDelay: Duration(milliseconds: 1),
-          duration: Duration(seconds: 2),
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  // color: Colors.amber,
-                  child: CardAtividadeWidget(
-                    nomeAtividade: atividadesController
-                        .listadeAtividades[index].atividadeNome,
-                    pesoAtividade: "Peso " +
-                        atividadesController
-                            .listadeAtividades[index].atividadePeso,
-                    medidaAtividade: atividadesController
-                        .listadeAtividades[index].atividadeMedida,
-                  ),
-                ),
-                SliderWidget(
-                  limiteAtividade: atividadesController
-                      .listadeAtividades[index].atividadeLimite,
-                  pesoAtividade: atividadesController
-                      .listadeAtividades[index].atividadePesoEstatisticas,
-                  tipoAtividade: atividadesController
-                      .listadeAtividades[index].atividadeNome,
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
+
 }
 
 class AtividadesPage extends StatefulWidget {
