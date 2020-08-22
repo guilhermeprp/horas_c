@@ -31,12 +31,18 @@ class _AtividadesPageState
           SliverAppBar(
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text("Atividades"),
+              background: Image.asset(
+                'assets/images/background_sliver.png',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
+              ),
+              title: Text('Atividades'),
               centerTitle: true,
             ),
-            backgroundColor: Color.fromRGBO(30, 60, 114, 1),
-            // pinned: true,
+            backgroundColor: Color.fromRGBO(0, 30, 90, 1),
+            pinned: true,
             floating: false,
+            stretch: true,
             elevation: 0,
           ),
           SliverList(
