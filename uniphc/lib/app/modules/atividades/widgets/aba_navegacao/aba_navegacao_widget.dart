@@ -22,7 +22,10 @@ class AbaNavegacao extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 30),
                   height: MediaQuery.of(context).size.height * 0.2,
-                  child: Image.asset('assets/images/logo_app.png'),
+                  child: Image.asset(
+                    'assets/images/logo_app.png',
+                    filterQuality: FilterQuality.medium,
+                  ),
                 ),
 
                 // Home
@@ -107,6 +110,7 @@ class AbaNavegacao extends StatelessWidget {
                           alignment: Alignment.bottomLeft,
                           child: Image.asset(
                             'assets/images/logo_gp.png',
+                            filterQuality: FilterQuality.medium,
                           ),
                         ),
                       ],
