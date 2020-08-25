@@ -23,20 +23,22 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF212121),
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/splash_screen_app.png"),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage("assets/images/splash_screen_app.png"),
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           Center(
             child: Container(
-                width: MediaQuery.of(context).size.width * 0.75,
-                child: Image.asset("assets/images/logo_app.png")),
+              child: Image.asset("assets/images/logo_app.png",
+                  filterQuality: FilterQuality.high),
+            ),
           ),
           Container(
             alignment: Alignment.bottomCenter,

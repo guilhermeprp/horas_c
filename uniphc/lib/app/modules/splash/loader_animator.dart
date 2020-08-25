@@ -94,7 +94,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0),
@@ -104,7 +104,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 1 * pi / 4),
@@ -114,7 +114,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 2 * pi / 4),
@@ -124,7 +124,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 3 * pi / 4),
@@ -134,7 +134,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 4 * pi / 4),
@@ -144,7 +144,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 5 * pi / 4),
@@ -154,7 +154,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 6 * pi / 4),
@@ -164,7 +164,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
                   new Transform.translate(
                     child: Dot(
                       radius: dotRadius,
-                      color: Colors.blue[900],
+                      color: Color(0xFF1bd4f6),
                     ),
                     offset: Offset(
                       radius * cos(0.0 + 7 * pi / 4),
