@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
 
 class SliderWidget extends StatefulWidget {
   final int limiteAtividade;
@@ -17,6 +18,11 @@ class SliderWidget extends StatefulWidget {
 }
 
 class _SliderWidgetState extends State<SliderWidget> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _accountNumberController =
+      TextEditingController();
+  final EstatisticaDao _dao = EstatisticaDao();
+
   var valor = 0;
   double estatisticas = 0;
 
@@ -27,14 +33,13 @@ class _SliderWidgetState extends State<SliderWidget> {
       child: Row(
         children: <Widget>[
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: MediaQuery.of(context).size.width * 0.75,
             child: Slider(
               min: 0,
               max: widget.limiteAtividade.toDouble(),
-              label: valor.round().toString(),
               divisions: widget.limiteAtividade,
               inactiveColor: Colors.blueGrey[400],
-              activeColor: Colors.blue[800],
+              activeColor: Color(0xFF161616),
               value: valor.toDouble(),
               onChanged: (double newValue) {
                 setState(
@@ -48,7 +53,10 @@ class _SliderWidgetState extends State<SliderWidget> {
           ),
           Text(
             valor.round().toString(),
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+                color: Color(0xFF212121),
+                fontFamily: 'TickingTimebomb',
+                fontSize: 20),
           ),
         ],
       ),

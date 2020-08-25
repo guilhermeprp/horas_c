@@ -20,7 +20,7 @@ class _AtividadesPageState
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color.fromRGBO(0, 30, 90, 1),
+      backgroundColor: Color(0xFF212121),
 
       //# Drawer side bar do aplicativo
       drawer: AbaNavegacao(),
@@ -33,13 +33,26 @@ class _AtividadesPageState
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 'assets/images/background_sliver.png',
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
                 filterQuality: FilterQuality.medium,
               ),
-              title: Text('Atividades'),
+              title: Stack(
+                children: [
+                  Text(
+                    'Atividades',
+                    style: TextStyle(
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Color(0xFF212121),
+                    ),
+                  ),
+                  Text('Atividades'),
+                ],
+              ),
               centerTitle: true,
             ),
-            backgroundColor: Color.fromRGBO(0, 30, 90, 1),
+            backgroundColor: Color(0xFF212121),
             pinned: true,
             floating: false,
             stretch: true,
@@ -92,12 +105,12 @@ class _AtividadesPageState
         child: Container(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.indigo, width: 0.3),
+            border: Border.all(color: Color(0xFF000000), width: 0.3),
             borderRadius: BorderRadius.all(Radius.circular(20)),
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.indigo[900], Colors.blue],
+              colors: [Color(0xFF212121), Color(0xFF484848)],
             ),
           ),
           height: 55,
