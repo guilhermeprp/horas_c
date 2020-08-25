@@ -8,6 +8,9 @@ class AppWidget extends StatelessWidget {
       navigatorKey: Modular.navigatorKey,
       title: 'Horas Complementares',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xFF212121),
+      ),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );
