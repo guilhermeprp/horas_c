@@ -66,9 +66,10 @@ class _EstatisticasPageState
                   width: MediaQuery.of(context).size.width / 4,
                   height: MediaQuery.of(context).size.height / 8,
                   child: CircularProgressIndicator(
-                    backgroundColor: Colors.grey[300],
+                    backgroundColor: Colors.transparent,
                     value: 0.7,
                     strokeWidth: 10,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
                   ),
                 ),
                 Positioned(
@@ -218,7 +219,6 @@ class _EstatisticasPageState
       children: [
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(top: 15),
             child: Text(
               "Atividade xyz",
               style: TextStyle(fontSize: 16),
@@ -229,7 +229,7 @@ class _EstatisticasPageState
           alignment: Alignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 15, 15, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 15, 15),
               child: Container(
                 height: 60,
                 width: 60,
@@ -244,7 +244,7 @@ class _EstatisticasPageState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 15, 15, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 15, 15),
               child: Text("data"),
             ),
           ],
