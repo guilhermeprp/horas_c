@@ -22,53 +22,98 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       ),
       drawer: AbaNavegacao(),
       body: Container(
-        color: Color.fromRGBO(0, 30, 90, 1),
+        color: Color(0xFF212121),
         child: Stack(
           children: <Widget>[
             //# Logo do Background
             Opacity(
-              opacity: 1,
+              opacity: 0.2,
               child: Container(
                 width: MediaQuery.of(context).size.width / 2,
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                  fit: BoxFit.fitHeight,
-                  alignment: FractionalOffset.centerRight,
-                  image: AssetImage('assets/images/logo_app.png'),
-                )),
+                  image: DecorationImage(
+                    fit: BoxFit.fitHeight,
+                    alignment: FractionalOffset.centerRight,
+                    image: AssetImage('assets/images/background_home.png'),
+                  ),
+                ),
               ),
             ),
 
-            //# Nome APP
             Container(
-              alignment: Alignment.center,
               margin: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height * 0.58),
-              child: Text(
-                'Horas C',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontFamily: 'ArialRounded'),
+                  top: MediaQuery.of(context).size.height * 0.18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //# Nome APP
+                  Stack(
+                    children: [
+                      Container(
+                        child: Text(
+                          'Hora C',
+                          style: TextStyle(
+                              fontSize: 36,
+                              foreground: Paint()
+                                ..style = PaintingStyle.stroke
+                                ..strokeWidth = 4
+                                ..color = Color(0xFF212121),
+                              fontFamily: 'CodeBold'),
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          'Hora C ',
+                          style: TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                              fontFamily: 'CodeBold'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: Image.asset(
+                      'assets/images/home_logo_ app.png',
+                      filterQuality: FilterQuality.medium,
+                    ),
+                  ),
+                ],
               ),
             ),
 
             //# Selecione seu curso
             Container(
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.43),
+                  top: MediaQuery.of(context).size.height * 0.45),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    child: Text(
-                      'Selecione seu Curso:',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
+                  Stack(
+                    children: [
+                      Container(
+                        child: Text(
+                          'Selecione seu Curso:',
+                          style: TextStyle(
+                            fontSize: 22,
+                            foreground: Paint()
+                              ..style = PaintingStyle.stroke
+                              ..strokeWidth = 5
+                              ..color = Color(0xFF212121),
+                          ),
+                        ),
                       ),
-                    ),
+                      Container(
+                        child: Text(
+                          'Selecione seu Curso:',
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
 
                   //# Aba/Box de seleção
@@ -93,7 +138,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.5),
+                  top: MediaQuery.of(context).size.height * 0.7),
               child: FittedBox(
                 child: RawMaterialButton(
                   onPressed: () {
@@ -103,7 +148,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   child: Icon(
                     MdiIcons.checkboxMarkedCircleOutline,
                     size: width * 0.25,
-                    color: Colors.white,
+                    color: Color(0xFF70ffff),
                   ),
                 ),
               ),

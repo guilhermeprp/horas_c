@@ -38,9 +38,20 @@ class ComboboxWidget extends StatelessWidget {
               height: 49,
               alignment: Alignment.centerRight,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(0, 30, 90, 1),
+                color: Color(0xFF212121),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(width: 1, color: Colors.white),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 0,
+                    color: Color(0xFF212121),
+                    spreadRadius: 2,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+                border: Border.all(
+                  width: 1,
+                  color: Color(0xFF70ffff),
+                ),
                 // boxShadow: [
                 //   BoxShadow(
                 //     color: Colors.indigo[900],
