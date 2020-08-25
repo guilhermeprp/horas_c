@@ -1,22 +1,14 @@
-import 'dart:async';
-
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
 
 Future<Database> getDatabase() async {
   final String path = join(await getDatabasesPath(), 'hc.db');
-  return openDatabase(path, onCreate: (db, version) {
-    db.execute('CREATE TABLE estatisticas('
-        'id INTEGER PRIMARY KEY,'
-        'tipoAtividade TEXT,'
-        'limiteAtividade INTEGER,'
-        'horaAtividade NUMERIC');
-  }, version: 1);
-}
-
-void save(Estatistica estatistica) {
-  createDatabase().then((db) {
-    final Map<String, dynamic> estatisticasMap = Map();
-    contactMap['id'] = estatistica.id;
-    db.insert('estatisticas', values);
-  });
+  return openDatabase(
+    path,
+    onCreate: (db, version) {
+      db.execute(EstatisticaDao.tablesql);
+    },
+    version: 1,
+  );
 }
