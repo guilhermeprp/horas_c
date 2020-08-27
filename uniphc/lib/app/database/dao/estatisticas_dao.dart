@@ -9,7 +9,7 @@ class EstatisticaDao {
       '$_id INTEGER PRIMARY KEY,'
       '$_tipoAtividade TEXT,'
       '$_limiteAtividade INTEGER,'
-      '$_horaAtividade NUMERIC';
+      '$_horaAtividade INTEGER';
   static const String _tableName = 'estatistica';
   static const String _id = 'id';
   static const String _tipoAtividade = 'tipoAtividade';
@@ -19,7 +19,7 @@ class EstatisticaDao {
   Future<int> save(Estatistica estatistica) async {
     final Database db = await getDatabase();
     Map<String, dynamic> estatisticaMap = _toMap(estatistica);
-    return db.insert(_tableName, estatisticaMap);
+    return db.insert('estatistica', estatisticaMap);
   }
 
   Future<List<Estatistica>> findAll() async {
