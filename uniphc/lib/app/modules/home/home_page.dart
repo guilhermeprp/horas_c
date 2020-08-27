@@ -22,7 +22,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       ),
       drawer: AbaNavegacao(),
       body: Container(
-        color: Color(0xFF212121),
+        color: Color(0xFF16171b),
         child: Stack(
           children: <Widget>[
             //# Logo do Background
@@ -58,7 +58,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               foreground: Paint()
                                 ..style = PaintingStyle.stroke
                                 ..strokeWidth = 4
-                                ..color = Color(0xFF212121),
+                                ..color = Color(0xFF16171b),
                               fontFamily: 'CodeBold'),
                         ),
                       ),
@@ -100,7 +100,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             foreground: Paint()
                               ..style = PaintingStyle.stroke
                               ..strokeWidth = 5
-                              ..color = Color(0xFF212121),
+                              ..color = Color(0xFF16171b),
                           ),
                         ),
                       ),

@@ -1,5 +1,6 @@
 import 'package:find_dropdown/find_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ComboboxWidget extends StatelessWidget {
   final List<Model> items;
@@ -38,12 +39,12 @@ class ComboboxWidget extends StatelessWidget {
               height: 49,
               alignment: Alignment.centerRight,
               decoration: BoxDecoration(
-                color: Color(0xFF212121),
+                color: Color(0xFF16171b),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 0,
-                    color: Color(0xFF212121),
+                    color: Color(0xFF16171b),
                     spreadRadius: 2,
                     offset: Offset(0, 0),
                   ),
@@ -52,20 +53,14 @@ class ComboboxWidget extends StatelessWidget {
                   width: 1,
                   color: Color(0xFF70ffff),
                 ),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.indigo[900],
-                //     blurRadius: 50, // soften the shadow
-                //     spreadRadius: 0, //extend the shadow
-                //     offset: Offset(
-                //       0, // Move to right 10  horizontally
-                //       5, // Move to bottom 5 Vertically
-                //     ),
-                //   )
-                // ],
               ),
               child: Container(
                 child: ListTile(
+                  trailing: Icon(
+                    MdiIcons.chevronDown,
+                    size: 35,
+                    color: Color(0xFF70ffff),
+                  ),
                   leading: Text(
                     "Ciência da Computação",
                     style: TextStyle(color: Colors.white),
