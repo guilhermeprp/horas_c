@@ -20,7 +20,7 @@ class _AtividadesPageState
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xFF212121),
+      backgroundColor: Color(0xFF16171b),
 
       //# Drawer side bar do aplicativo
       drawer: AbaNavegacao(),
@@ -44,7 +44,7 @@ class _AtividadesPageState
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 3
-                        ..color = Color(0xFF212121),
+                        ..color = Color(0xFF16171b),
                     ),
                   ),
                   Text('Atividades'),
@@ -52,7 +52,7 @@ class _AtividadesPageState
               ),
               centerTitle: true,
             ),
-            backgroundColor: Color(0xFF212121),
+            backgroundColor: Color(0xFF16171b),
             pinned: true,
             floating: false,
             stretch: true,
@@ -107,11 +107,7 @@ class _AtividadesPageState
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xFF000000), width: 0.3),
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xFF212121), Color(0xFF484848)],
-            ),
+            color: Color(0xFF212121),
           ),
           height: 55,
           child: ClipRRect(
@@ -187,6 +183,7 @@ class _AtividadesPageState
                     .listadeAtividades[index].atividadePesoEstatisticas,
                 tipoAtividade:
                     atividadesController.listadeAtividades[index].atividadeNome,
+                idAtividade: atividadesController.listadeAtividades[index].id,
               ),
             ],
           ),
