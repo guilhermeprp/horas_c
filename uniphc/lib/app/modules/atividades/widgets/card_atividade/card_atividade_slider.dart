@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
+import 'package:uniphc/app/modules/atividades/models/estatistica_model.dart';
 
 class SliderWidget extends StatefulWidget {
   final int limiteAtividade;
   final double pesoAtividade;
   final String tipoAtividade;
-  const SliderWidget(
-      {Key key,
-      @required this.limiteAtividade,
-      @required this.pesoAtividade,
-      @required this.tipoAtividade})
-      : super(key: key);
+  final String idAtividade;
+  const SliderWidget({
+    Key key,
+    @required this.limiteAtividade,
+    @required this.pesoAtividade,
+    @required this.tipoAtividade,
+    @required this.idAtividade,
+  }) : super(key: key);
 
   @override
   _SliderWidgetState createState() => _SliderWidgetState();
 }
 
 class _SliderWidgetState extends State<SliderWidget> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _accountNumberController =
-      TextEditingController();
   final EstatisticaDao _dao = EstatisticaDao();
 
   var valor = 0;
@@ -39,7 +39,7 @@ class _SliderWidgetState extends State<SliderWidget> {
               max: widget.limiteAtividade.toDouble(),
               divisions: widget.limiteAtividade,
               inactiveColor: Colors.blueGrey[400],
-              activeColor: Color(0xFF161616),
+              activeColor: Color(0xFF18d8f4),
               value: valor.toDouble(),
               onChanged: (double newValue) {
                 setState(
@@ -54,7 +54,7 @@ class _SliderWidgetState extends State<SliderWidget> {
           Text(
             valor.round().toString(),
             style: TextStyle(
-                color: Color(0xFF212121),
+                color: Color(0xFF18d8f4),
                 fontFamily: 'TickingTimebomb',
                 fontSize: 20),
           ),
@@ -64,8 +64,24 @@ class _SliderWidgetState extends State<SliderWidget> {
   }
 
   void guardar() {
-    estatisticas = valor / widget.pesoAtividade;
-    print(widget.tipoAtividade);
-    print(estatisticas.round());
+    final String tipoAtividade = widget.tipoAtividade;
+    final int limiteAtividade = widget.limiteAtividade;
+    var horaAtividade = valor / widget.pesoAtividade;
+    final String idAtividade = widget.idAtividade;
+
+    final Estatistica estatistica =
+        Estatistica(0, tipoAtividade, limiteAtividade, horaAtividade);
+    if (estatistica != null &&
+        idAtividade != null &&
+        tipoAtividade != null &&
+        limiteAtividade != null &&
+        horaAtividade != null) {
+      _dao.save(estatistica).then((id) => idAtividade);
+    }
+
+    print(idAtividade);
+    print(tipoAtividade);
+    print(limiteAtividade);
+    print(horaAtividade);
   }
 }
