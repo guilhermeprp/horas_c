@@ -6,7 +6,7 @@ class DivisorWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 2),
       child: Divider(
-        color: Colors.grey[300],
+        color: Color(0xFF16171b),
         height: 20,
       ),
     );
