@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
+import 'package:uniphc/app/modules/atividades/models/estatistica_model.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/shared/divisor/divisor_widget.dart';
 import 'estatisticas_controller.dart';
@@ -20,11 +21,12 @@ class EstatisticasPage extends StatefulWidget {
 class _EstatisticasPageState
     extends ModularState<EstatisticasPage, EstatisticasController> {
   //use 'controller' variable to access controller
+  final EstatisticaDao _dao = EstatisticaDao();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 30, 90, 1),
+      backgroundColor: Color(0xFF16171b),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(43),
         child: AppBar(
@@ -69,7 +71,9 @@ class _EstatisticasPageState
                     backgroundColor: Colors.transparent,
                     value: 0.7,
                     strokeWidth: 10,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFF18d8f4),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -77,72 +81,68 @@ class _EstatisticasPageState
                   child: Text(
                     "180H",
                     style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: "ArialRounded",
-                        color: Colors.white),
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
-              ),
-              margin: EdgeInsets.fromLTRB(
-                  30, MediaQuery.of(context).size.height * 0.27, 30, 0),
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-              child: ListView(
-                children: [
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                  DivisorWidget(),
-                  buildList(),
-                ],
-              ),
+
+            //# Coluna List View
+            FutureBuilder<List<Estatistica>>(
+              initialData: List(),
+              future: _dao.findAll(),
+              builder: (context, snapshot) {
+                final List<Estatistica> estatisticas = snapshot.data;
+                switch (snapshot.connectionState) {
+                  case ConnectionState.none:
+                    break;
+
+                  case ConnectionState.waiting:
+                    return Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(),
+                          Text("Loading..."),
+                        ],
+                      ),
+                    );
+                    break;
+
+                  case ConnectionState.active:
+                    break;
+
+                  case ConnectionState.done:
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF202125),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
+                      ),
+                      margin: EdgeInsets.fromLTRB(
+                          30, MediaQuery.of(context).size.height * 0.27, 30, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          final Estatistica estatistica = estatisticas[index];
+                          return buildList(estatistica);
+                        },
+                        itemCount: estatisticas.length,
+                      ),
+                    );
+
+                    break;
+                }
+                return Text('Erro desconhecido');
+              },
             ),
           ],
         ),
       ),
-
-      // floatingActionButton: Padding(
-      //   padding: EdgeInsets.only(top: 55),
-      //   child: Container(
-      //     height: 60,
-      //     width: 60,
-      //     decoration: BoxDecoration(
-      //       shape: BoxShape.circle,
-      //       gradient: LinearGradient(
-      //         colors: [
-      //           Colors.indigo,
-      //           Colors.blue,
-      //         ],
-      //       ),
-      //     ),
-      //     child: FloatingActionButton(
-      //       onPressed: () {
-      //         Navigator.pushNamed(context, "/Atividades");
-      //       },
-      //       backgroundColor: Colors.transparent,
-      //       child:
-      //           Icon(MdiIcons.keyboardBackspace, size: 45, color: Colors.white),
-      //     ),
-      //   ),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       //# Barra de navegação inferior
       bottomNavigationBar: Padding(
@@ -150,13 +150,9 @@ class _EstatisticasPageState
         child: Container(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.indigo, width: 0.3),
+            border: Border.all(color: Colors.black, width: 0.3),
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.indigo[900], Colors.blue],
-            ),
+            color: Color(0xFF212121),
           ),
           height: 55,
           child: ClipRRect(
@@ -213,15 +209,19 @@ class _EstatisticasPageState
     );
   }
 
-  Row buildList() {
+  Row buildList(estatistica) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Expanded(
           child: Container(
             child: Text(
-              "Atividade xyz",
-              style: TextStyle(fontSize: 16),
+              estatistica.tipoAtividade,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -235,17 +235,21 @@ class _EstatisticasPageState
                 width: 60,
                 child: CircularProgressIndicator(
                   backgroundColor: Colors.transparent,
-                  value: 0.7,
+                  value:
+                      estatistica.limiteAtividade / estatistica.horaAtividade,
                   strokeWidth: 10,
                   valueColor: AlwaysStoppedAnimation<Color>(
-                    Color.fromRGBO(0, 30, 90, 1),
+                    Color(0xFF18d8f4),
                   ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 15, 15, 15),
-              child: Text("data"),
+              child: Text(
+                estatistica.horaAtividade,
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
