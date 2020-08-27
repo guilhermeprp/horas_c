@@ -27,7 +27,7 @@ class CardAtividadeWidget extends StatelessWidget {
             offset: Offset(2, 1),
           ),
         ],
-        color: Color(0xFF18d8f4),
+        color: Color(0xFF202125),
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(30),
           bottomLeft: Radius.circular(30),
@@ -47,7 +47,7 @@ class CardAtividadeWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF212121),
+                color: Colors.white,
               ),
             ),
           ),
@@ -61,7 +61,7 @@ class CardAtividadeWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.normal,
-                      color: Color(0xFF212121),
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -70,7 +70,7 @@ class CardAtividadeWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.normal,
-                    color: Color(0xFF212121),
+                    color: Colors.white,
                   ),
                 ),
               ],
