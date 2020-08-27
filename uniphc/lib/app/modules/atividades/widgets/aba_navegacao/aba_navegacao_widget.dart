@@ -18,19 +18,19 @@ class AbaNavegacao extends StatelessWidget {
           child: Drawer(
             child: ListView(
               children: <Widget>[
-                // Logo
+                //# Logo
                 Container(
-                  margin: EdgeInsets.only(top: 30),
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  margin: EdgeInsets.only(top: 70),
+                  height: MediaQuery.of(context).size.height * 0.25,
                   child: Image.asset(
                     'assets/images/logo_app.png',
                     filterQuality: FilterQuality.medium,
                   ),
                 ),
 
-                // Home
+                //# Home
                 Padding(
-                  padding: EdgeInsets.only(top: 50),
+                  padding: EdgeInsets.only(top: 60),
                   child: Column(
                     children: [
                       ListTile(
@@ -95,18 +95,18 @@ class AbaNavegacao extends StatelessWidget {
                 // Logo dos Criadores
                 Container(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 100, 0, 10),
+                    padding: const EdgeInsets.fromLTRB(20, 45, 0, 20),
                     child: Row(
                       children: <Widget>[
                         Container(
                           alignment: Alignment.bottomLeft,
                           child: Text(
-                            'Powered by:',
+                            'Powered by:  ',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.height * 0.03,
                           alignment: Alignment.bottomLeft,
                           child: Image.asset(
                             'assets/images/logo_gp.png',
