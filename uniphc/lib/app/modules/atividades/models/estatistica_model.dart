@@ -9,6 +9,6 @@ class Estatistica {
 
   @override
   String toString() {
-    return 'estatistica{id:$id, tipoAtividade:$tipoAtividade, limiteAtividade:$limiteAtividade, horaAtividade:$horaAtividade}';
+    return 'estatistica {id:$id, tipoAtividade:$tipoAtividade, limiteAtividade:$limiteAtividade, horaAtividade:$horaAtividade}';
   }
 }
