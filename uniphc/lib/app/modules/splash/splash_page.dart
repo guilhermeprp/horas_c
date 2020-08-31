@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:uniphc/app/modules/splash/loader_animator.dart';
 import 'splash_controller.dart';
 
 class _SplashPageState extends ModularState<SplashPage, SplashController> {
@@ -25,13 +26,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
       backgroundColor: Color(0xFF212121),
       body: Stack(
         children: <Widget>[
-          Center(
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: Image.asset("assets/images/logo_app.png",
-                  filterQuality: FilterQuality.high),
-            ),
-          ),
+          Loading(),
         ],
       ),
     );
