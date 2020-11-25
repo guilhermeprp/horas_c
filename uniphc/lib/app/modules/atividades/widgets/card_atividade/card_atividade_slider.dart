@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
+import 'package:uniphc/app/database/app_database.dart';
 import 'package:uniphc/app/modules/atividades/models/estatistica_model.dart';
 
 class SliderWidget extends StatefulWidget {
@@ -21,8 +21,6 @@ class SliderWidget extends StatefulWidget {
 }
 
 class _SliderWidgetState extends State<SliderWidget> {
-  final EstatisticaDao _dao = EstatisticaDao();
-
   var valor = 0;
   double estatisticas = 0;
 
@@ -30,6 +28,7 @@ class _SliderWidgetState extends State<SliderWidget> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 70),
+      padding: EdgeInsets.only(left: 10),
       child: Row(
         children: <Widget>[
           Container(
@@ -64,24 +63,19 @@ class _SliderWidgetState extends State<SliderWidget> {
   }
 
   void guardar() {
-    final String tipoAtividade = widget.tipoAtividade;
-    final int limiteAtividade = widget.limiteAtividade;
-    var horaAtividade = valor / widget.pesoAtividade;
-    final String idAtividade = widget.idAtividade;
+    // final String tipoAtividade = widget.tipoAtividade;
+    // final int limiteAtividade = widget.limiteAtividade;
+    // var horaAtividade = valor / widget.pesoAtividade;
+    // final String idAtividade = widget.idAtividade;
 
-    final Estatistica estatistica =
-        Estatistica(0, tipoAtividade, limiteAtividade, horaAtividade);
-    if (estatistica != null &&
-        idAtividade != null &&
-        tipoAtividade != null &&
-        limiteAtividade != null &&
-        horaAtividade != null) {
-      _dao.save(estatistica).then((id) => idAtividade);
-    }
+    var newDBEstatistica = Estatistica(
+      id: widget.idAtividade,
+      tipoAtividade: widget.tipoAtividade,
+      limiteAtividade: widget.limiteAtividade,
+      horaAtividade: estatisticas,
+    );
+    DBProvider.db.newEstatistica(newDBEstatistica);
 
-    print(idAtividade);
-    print(tipoAtividade);
-    print(limiteAtividade);
-    print(horaAtividade);
+    print(estatisticas);
   }
 }

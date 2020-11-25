@@ -36,7 +36,7 @@ class CardAtividadeWidget extends StatelessWidget {
       ),
       height: 128,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.fromLTRB(14, 10, 14, 0),
+      padding: EdgeInsets.fromLTRB(14, 13, 14, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

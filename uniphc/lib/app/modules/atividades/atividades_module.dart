@@ -17,8 +17,9 @@ class AtividadesModule extends ChildModule {
         Bind((i) => HasuraConnect("https://uniphc.herokuapp.com/v1/graphql")),
       ];
   @override
-  List<Router> get routers => [
-        Router(Modular.initialRoute, child: (_, args) => AtividadesPage()),
+  List<ModularRouter> get routers => [
+        ModularRouter(Modular.initialRoute,
+            child: (_, args) => AtividadesPage()),
       ];
 
   static Inject get to => Inject<AtividadesModule>.of();

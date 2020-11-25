@@ -10,7 +10,6 @@ import 'home_controller.dart';
 class _HomePageState extends ModularState<HomePage, HomeController> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   //use 'controller' variable to access controller
-
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;

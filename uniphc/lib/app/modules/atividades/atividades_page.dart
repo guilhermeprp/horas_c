@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:uniphc/app/database/app_database.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
+import 'package:uniphc/app/modules/atividades/models/estatistica_model.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_slider.dart';
 import 'package:uniphc/app/modules/atividades/widgets/card_atividade/card_atividade_widget.dart';
@@ -141,7 +143,7 @@ class _AtividadesPageState
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/");
+                        Navigator.pushNamed(context, "/Manuais");
                       },
                     ),
                   ],

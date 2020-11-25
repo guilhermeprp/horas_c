@@ -9,8 +9,9 @@ class EstatisticasModule extends ChildModule {
       ];
 
   @override
-  List<Router> get routers => [
-        Router(Modular.initialRoute, child: (_, args) => EstatisticasPage()),
+  List<ModularRouter> get routers => [
+        ModularRouter(Modular.initialRoute,
+            child: (_, args) => EstatisticasPage()),
       ];
 
   static Inject get to => Inject<EstatisticasModule>.of();

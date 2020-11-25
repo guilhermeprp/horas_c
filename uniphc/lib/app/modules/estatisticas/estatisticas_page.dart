@@ -2,10 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:uniphc/app/database/dao/estatisticas_dao.dart';
-import 'package:uniphc/app/modules/atividades/models/estatistica_model.dart';
+import 'package:uniphc/app/modules/estatisticas/barra_estatisticas/lista_estatisticas.dart';
 import 'package:uniphc/app/modules/atividades/widgets/aba_navegacao/aba_navegacao_widget.dart';
-import 'package:uniphc/app/shared/divisor/divisor_widget.dart';
 import 'estatisticas_controller.dart';
 
 class EstatisticasPage extends StatefulWidget {
@@ -21,7 +19,6 @@ class EstatisticasPage extends StatefulWidget {
 class _EstatisticasPageState
     extends ModularState<EstatisticasPage, EstatisticasController> {
   //use 'controller' variable to access controller
-  final EstatisticaDao _dao = EstatisticaDao();
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +62,11 @@ class _EstatisticasPageState
                       MediaQuery.of(context).size.height * 0.11,
                       MediaQuery.of(context).size.width * 0.375,
                       0),
-                  width: MediaQuery.of(context).size.width / 4,
-                  height: MediaQuery.of(context).size.height / 8,
+                  width: 90,
+                  height: 90,
                   child: CircularProgressIndicator(
                     backgroundColor: Colors.transparent,
-                    value: 0.7,
+                    value: 1,
                     strokeWidth: 10,
                     valueColor: AlwaysStoppedAnimation<Color>(
                       Color(0xFF18d8f4),
@@ -90,56 +87,7 @@ class _EstatisticasPageState
             ),
 
             //# Coluna List View
-            FutureBuilder<List<Estatistica>>(
-              initialData: List(),
-              future: _dao.findAll(),
-              builder: (context, snapshot) {
-                final List<Estatistica> estatisticas = snapshot.data;
-                switch (snapshot.connectionState) {
-                  case ConnectionState.none:
-                    break;
-
-                  case ConnectionState.waiting:
-                    return Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CircularProgressIndicator(),
-                          Text("Loading..."),
-                        ],
-                      ),
-                    );
-                    break;
-
-                  case ConnectionState.active:
-                    break;
-
-                  case ConnectionState.done:
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFF202125),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20)),
-                      ),
-                      margin: EdgeInsets.fromLTRB(
-                          30, MediaQuery.of(context).size.height * 0.27, 30, 0),
-                      padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          final Estatistica estatistica = estatisticas[index];
-                          return buildList(estatistica);
-                        },
-                        itemCount: estatisticas.length,
-                      ),
-                    );
-
-                    break;
-                }
-                return Text('Erro desconhecido');
-              },
-            ),
+            ListaEstatisticas(),
           ],
         ),
       ),
@@ -196,7 +144,7 @@ class _EstatisticasPageState
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/");
+                        Navigator.pushNamed(context, "/Manuais");
                       },
                     ),
                   ],

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:uniphc/app/app_widget.dart';
 import 'package:uniphc/app/modules/atividades/atividades_module.dart';
 import 'package:uniphc/app/modules/estatisticas/estatisticas_module.dart';
+import 'package:uniphc/app/modules/manuais/manuais_module.dart';
 import 'package:uniphc/app/modules/splash/splash_module.dart';
 
 import 'modules/home/home_module.dart';
@@ -15,11 +16,12 @@ class AppModule extends MainModule {
       ];
 
   @override
-  List<Router> get routers => [
-        Router('/', module: SplashModule()),
-        Router('/Home', module: HomeModule()),
-        Router('/Atividades', module: AtividadesModule()),
-        Router('/Estatisticas', module: EstatisticasModule()),
+  List<ModularRouter> get routers => [
+        ModularRouter('/', module: SplashModule()),
+        ModularRouter('/Home', module: HomeModule()),
+        ModularRouter('/Atividades', module: AtividadesModule()),
+        ModularRouter('/Estatisticas', module: EstatisticasModule()),
+        ModularRouter('/Manuais', module: ManuaisModule()),
       ];
 
   @override
